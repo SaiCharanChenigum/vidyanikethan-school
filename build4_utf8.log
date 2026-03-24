@@ -1,0 +1,159 @@
+﻿
+> vidyanikethan-school@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+  - Environments: .env
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+node.exe : PrismaClientCon
+structorValidationError: 
+Unknown property 
+datasources provided to 
+PrismaClient constructor.
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpeci    fied: 
+(PrismaClie    ntCon...nt 
+constr    uctor.:String) 
+[]    , RemoteException
+    + FullyQualifiedE    
+rrorId : NativeCo    
+mmandError
+ 
+Read more at https://pris.
+ly/d/client-constructor
+    at jl (C:\Users\cheni\
+.gemini\antigravity\scratc
+h\vidyanikethan-school\nod
+e_modules\@prisma\client\r
+untime\client.js:66:3832)
+    at new t (C:\Users\che
+ni\.gemini\antigravity\scr
+atch\vidyanikethan-school\
+node_modules\@prisma\clien
+t\runtime\client.js:70:180
+8)
+    at 728 (C:\Users\cheni
+\.gemini\antigravity\scrat
+ch\vidyanikethan-school\.n
+ext\server\app\api\contact
+\route.js:1:1531)
+    at t (C:\Users\cheni\.
+gemini\antigravity\scratch
+\vidyanikethan-school\.nex
+t\server\webpack-runtime.j
+s:1:127)
+    at 7348 (C:\Users\chen
+i\.gemini\antigravity\scra
+tch\vidyanikethan-school\.
+next\server\app\api\contac
+t\route.js:1:484)
+    at t (C:\Users\cheni\.
+gemini\antigravity\scratch
+\vidyanikethan-school\.nex
+t\server\webpack-runtime.j
+s:1:127)
+    at r (C:\Users\cheni\.
+gemini\antigravity\scratch
+\vidyanikethan-school\.nex
+t\server\app\api\contact\r
+oute.js:1:1664)
+    at C:\Users\cheni\.gem
+ini\antigravity\scratch\vi
+dyanikethan-school\.next\s
+erver\app\api\contact\rout
+e.js:1:1695
+    at t.X (C:\Users\cheni
+\.gemini\antigravity\scrat
+ch\vidyanikethan-school\.n
+ext\server\webpack-runtime
+.js:1:1191)
+    at C:\Users\cheni\.gem
+ini\antigravity\scratch\vi
+dyanikethan-school\.next\s
+erver\app\api\contact\rout
+e.js:1:1677
+PrismaClientConstructorVal
+idationError: Unknown 
+property datasources 
+provided to PrismaClient 
+constructor.
+Read more at https://pris.
+ly/d/client-constructor
+    at jl (C:\Users\cheni\
+.gemini\antigravity\scratc
+h\vidyanikethan-school\nod
+e_modules\@prisma\client\r
+untime\client.js:66:3832)
+    at new t (C:\Users\che
+ni\.gemini\antigravity\scr
+atch\vidyanikethan-school\
+node_modules\@prisma\clien
+t\runtime\client.js:70:180
+8)
+    at 728 (C:\Users\cheni
+\.gemini\antigravity\scrat
+ch\vidyanikethan-school\.n
+ext\server\app\api\admissi
+ons\route.js:37:38845)
+    at t (C:\Users\cheni\.
+gemini\antigravity\scratch
+\vidyanikethan-school\.nex
+t\server\webpack-runtime.j
+s:1:127)
+    at 2577 (C:\Users\chen
+i\.gemini\antigravity\scra
+tch\vidyanikethan-school\.
+next\server\app\api\admiss
+ions\route.js:1:4671)
+    at t (C:\Users\cheni\.
+gemini\antigravity\scratch
+\vidyanikethan-school\.nex
+t\server\webpack-runtime.j
+s:1:127)
+    at n (C:\Users\cheni\.
+gemini\antigravity\scratch
+\vidyanikethan-school\.nex
+t\server\app\api\admission
+s\route.js:37:38978)
+    at C:\Users\cheni\.gem
+ini\antigravity\scratch\vi
+dyanikethan-school\.next\s
+erver\app\api\admissions\r
+oute.js:37:39009
+    at t.X (C:\Users\cheni
+\.gemini\antigravity\scrat
+ch\vidyanikethan-school\.n
+ext\server\webpack-runtime
+.js:1:1191)
+    at C:\Users\cheni\.gem
+ini\antigravity\scratch\vi
+dyanikethan-school\.next\s
+erver\app\api\admissions\r
+oute.js:37:38991
+
+> Build error occurred
+Error: Failed to collect 
+page data for /api/contact
+    at C:\Users\cheni\.gem
+ini\antigravity\scratch\vi
+dyanikethan-school\node_mo
+dules\next\dist\build\util
+s.js:1269:15
+    at process.processTick
+sAndRejections (node:inter
+nal/process/task_queues:10
+5:5) {
+  type: 'Error'
+}

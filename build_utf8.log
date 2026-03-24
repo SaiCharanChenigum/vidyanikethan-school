@@ -1,0 +1,177 @@
+﻿
+> vidyanikethan-school@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+  - Environments: .env
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+node.exe : Error: 
+Cannot find module '.p
+risma/client/default'
+At C:\Program Files\no
+dejs\npm.ps1:29 char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo    
+          : 
+NotSpecified: (E    
+rror: Cannot f...clie 
+   
+nt/default':String) [ 
+   ], RemoteException
+    + 
+FullyQualifiedError   
+ Id : 
+NativeCommandErr    or
+ 
+Require stack:
+- C:\Users\cheni\.gemi
+ni\antigravity\scratch
+\vidyanikethan-school\
+node_modules\@prisma\c
+lient\default.js
+- C:\Users\cheni\.gemi
+ni\antigravity\scratch
+\vidyanikethan-school\
+.next\server\app\api\c
+ontact\route.js
+- C:\Users\cheni\.gemi
+ni\antigravity\scratch
+\vidyanikethan-school\
+node_modules\next\dist
+\server\require.js
+- C:\Users\cheni\.gemi
+ni\antigravity\scratch
+\vidyanikethan-school\
+node_modules\next\dist
+\server\load-component
+s.js
+- C:\Users\cheni\.gemi
+ni\antigravity\scratch
+\vidyanikethan-school\
+node_modules\next\dist
+\build\utils.js
+- C:\Users\cheni\.gemi
+ni\antigravity\scratch
+\vidyanikethan-school\
+node_modules\next\dist
+\build\worker.js
+- C:\Users\cheni\.gemi
+ni\antigravity\scratch
+\vidyanikethan-school\
+node_modules\next\dist
+\compiled\jest-worker\
+processChild.js
+    at 
+Function.<anonymous> (
+node:internal/modules/
+cjs/loader:1401:15)
+    at C:\Users\cheni\
+.gemini\antigravity\sc
+ratch\vidyanikethan-sc
+hool\node_modules\next
+\dist\server\require-h
+ook.js:55:36
+    at 
+defaultResolveImpl (no
+de:internal/modules/cj
+s/loader:1057:19)
+    at resolveForCJSWi
+thHooks (node:internal
+/modules/cjs/loader:10
+62:22)
+    at Function._load 
+(node:internal/modules
+/cjs/loader:1211:37)
+    at TracingChannel.
+traceSync (node:diagno
+stics_channel:322:14)
+    at wrapModuleLoad 
+(node:internal/modules
+/cjs/loader:235:24)
+    at 
+Module.<anonymous> (no
+de:internal/modules/cj
+s/loader:1487:12)
+    at mod.require (C:
+\Users\cheni\.gemini\a
+ntigravity\scratch\vid
+yanikethan-school\node
+_modules\next\dist\ser
+ver\require-hook.js:65
+:28)
+    at require (node:i
+nternal/modules/helper
+s:135:16) {
+  code: 
+'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\cheni\
+\.gemini\\antigravity\
+\scratch\\vidyaniketha
+n-school\\node_modules
+\\@prisma\\client\\def
+ault.js',
+    'C:\\Users\\cheni\
+\.gemini\\antigravity\
+\scratch\\vidyaniketha
+n-school\\.next\\serve
+r\\app\\api\\contact\\
+route.js',
+    'C:\\Users\\cheni\
+\.gemini\\antigravity\
+\scratch\\vidyaniketha
+n-school\\node_modules
+\\next\\dist\\server\\
+require.js',
+    'C:\\Users\\cheni\
+\.gemini\\antigravity\
+\scratch\\vidyaniketha
+n-school\\node_modules
+\\next\\dist\\server\\
+load-components.js',
+    'C:\\Users\\cheni\
+\.gemini\\antigravity\
+\scratch\\vidyaniketha
+n-school\\node_modules
+\\next\\dist\\build\\u
+tils.js',
+    'C:\\Users\\cheni\
+\.gemini\\antigravity\
+\scratch\\vidyaniketha
+n-school\\node_modules
+\\next\\dist\\build\\w
+orker.js',
+    'C:\\Users\\cheni\
+\.gemini\\antigravity\
+\scratch\\vidyaniketha
+n-school\\node_modules
+\\next\\dist\\compiled
+\\jest-worker\\process
+Child.js'
+  ]
+}
+
+> Build error occurred
+Error: Failed to 
+collect page data for 
+/api/contact
+    at C:\Users\cheni\
+.gemini\antigravity\sc
+ratch\vidyanikethan-sc
+hool\node_modules\next
+\dist\build\utils.js:1
+269:15
+    at process.process
+TicksAndRejections (no
+de:internal/process/ta
+sk_queues:105:5) {
+  type: 'Error'
+}

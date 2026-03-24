@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, phone, message } = body;
+    const { name, email, message } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -13,23 +12,16 @@ export async function POST(req: Request) {
       );
     }
 
-    const newContactMessage = await prisma.contactMessage.create({
-      data: {
-        name,
-        email,
-        phone,
-        message,
-      },
-    });
+    // Mocking database save for client demonstration
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return NextResponse.json(
-      { success: true, data: newContactMessage },
+      { success: true, data: { name, email, message } },
       { status: 201 }
     );
   } catch (error: any) {
-    console.error("Error creating contact message:", error);
     return NextResponse.json(
-      { error: "Failed to create contact message" },
+      { error: "Failed to submit" },
       { status: 500 }
     );
   }

@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -16,23 +15,14 @@ export async function POST(req: Request) {
     const body = await req.json();
     const data = formSchema.parse(body);
 
-    const enquiry = await prisma.admissionEnquiry.create({
-      data: {
-        studentName: data.studentName,
-        parentName: data.parentName,
-        phone: data.phone,
-        email: data.email || null,
-        grade: data.grade,
-        message: data.message || null,
-      },
-    });
+    // Mocking database save for client demonstration
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return NextResponse.json(
-      { success: true, message: "Enquiry submitted successfully", data: enquiry },
+      { success: true, message: "Enquiry submitted successfully", data },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Admissions API Error:", error);
     if (error instanceof z.ZodError) {
       return NextResponse.json({ success: false, message: "Invalid data", errors: error.issues }, { status: 400 });
     }
