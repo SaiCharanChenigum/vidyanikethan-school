@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",
 		"@hookform/resolvers": "^5.2.2",
+		"@prisma/adapter-pg": "^7.5.0",
 		"@prisma/client": "^7.5.0",
 		"@radix-ui/react-toast": "^1.2.15",
 		"@react-spring/web": "^10.0.3",
@@ -20,6 +21,7 @@
 		"framer-motion": "^12.38.0",
 		"lucide-react": "^0.577.0",
 		"next": "14.2.35",
+		"pg": "^8.20.0",
 		"radix-ui": "^1.4.3",
 		"react": "^18",
 		"react-bits": "^1.0.5",
@@ -31,14 +33,15 @@
 	},
 	"devDependencies": {
 		"@types/node": "^20",
+		"@types/pg": "^8.20.0",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
 		"eslint": "^8",
 		"eslint-config-next": "14.2.35",
+		"jsrepo": "^3.7.0",
 		"postcss": "^8",
 		"prisma": "^7.5.0",
 		"tailwindcss": "^3.4.1",
-		"typescript": "^5",
-		"jsrepo": "^3.7.0"
+		"typescript": "^5"
 	}
 }
