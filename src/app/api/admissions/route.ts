@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import * as z from "zod";
-
-const prisma = new PrismaClient();
 
 const formSchema = z.object({
   studentName: z.string().min(2),
