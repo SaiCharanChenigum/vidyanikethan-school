@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col selection:bg-gold-crest selection:text-navy-midnight bg-offwhite text-navy-midnight font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col selection:bg-brand-indigo selection:text-white bg-surface-cloud text-sys-body font-sans`}
       >
         <Navbar />
         <main className="flex-1">{children}</main>
@@ -39,7 +40,7 @@ export default function RootLayout({
         {/* Floating Admissions CTA */}
         <Link
           href="/admissions"
-          className="fixed bottom-6 right-6 z-50 bg-gold-flame text-white font-bold text-sm px-5 py-3 rounded-lg shadow-lg hover:bg-[#E0850A] transition-colors animate-pulse-cta"
+          className="fixed bottom-6 right-6 z-50 bg-brand-amber text-white font-bold text-sm px-5 py-3 rounded-lg shadow-lg hover:bg-[#D97706] transition-colors animate-pulse-cta"
         >
           Admissions Open
         </Link>

@@ -27,7 +27,7 @@ export function Navbar() {
   ];
 
   return (
-    <nav className={`sticky top-0 z-50 w-full text-cream shadow-sm border-b border-white/5 transition-all duration-300 ${scrolled ? "bg-[rgba(10,22,40,0.92)] backdrop-blur-lg" : "bg-navy-midnight"}`}>
+    <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-surface-white border-b border-surface-border"}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center">
@@ -43,10 +43,10 @@ export function Navbar() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold tracking-tight text-lg text-cream leading-tight">
+                <span className="font-bold tracking-tight text-lg text-sys-primary leading-tight">
                   Vidyanikethan
                 </span>
-                <span className="text-[10px] font-medium tracking-widest text-gold-crest uppercase leading-tight">
+                <span className="text-[10px] font-bold tracking-widest text-brand-indigo uppercase leading-tight mt-0.5">
                   CBSE &middot; Nursery to Class X
                 </span>
               </div>
@@ -59,10 +59,10 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="relative py-2 text-sm font-medium transition-colors hover:text-gold-crest overflow-hidden group text-[rgba(248,246,240,0.4)] uppercase tracking-wide"
+                  className="relative py-2 text-sm font-semibold transition-colors hover:text-brand-indigo overflow-hidden group text-sys-muted uppercase tracking-wide"
                 >
                   {link.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gold-crest transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-indigo transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -71,7 +71,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Link
               href="/admissions"
-              className="inline-flex items-center justify-center rounded-[7px] bg-gold-flame px-6 py-2.5 text-sm font-bold tracking-wide text-white hover:bg-[#E0850A] focus:outline-none transition-all duration-300 uppercase"
+              className="inline-flex items-center justify-center rounded-lg bg-brand-amber px-6 py-2.5 text-sm font-bold tracking-wide text-white hover:bg-[#D97706] focus:outline-none transition-all duration-300 uppercase shadow-sm"
             >
               Admissions Open
             </Link>
@@ -80,7 +80,7 @@ export function Navbar() {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-cream hover:text-gold-crest focus:outline-none transition-colors"
+              className="inline-flex items-center justify-center p-2 rounded-md text-sys-primary hover:text-brand-indigo focus:outline-none transition-colors"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
@@ -94,13 +94,13 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-navy-midnight border-b border-white/5">
+        <div className="lg:hidden bg-surface-white border-b border-surface-border shadow-lg">
           <div className="space-y-1 px-4 pb-6 pt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block rounded-md px-3 py-3 text-sm font-medium uppercase tracking-widest text-cream hover:bg-white/5 hover:text-gold-crest transition-colors"
+                className="block rounded-md px-3 py-3 text-sm font-semibold uppercase tracking-widest text-sys-primary hover:bg-surface-cloud hover:text-brand-indigo transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -108,7 +108,7 @@ export function Navbar() {
             ))}
             <Link
               href="/admissions"
-              className="mt-6 block w-full text-center rounded-[7px] bg-gold-flame px-5 py-3 text-sm font-bold uppercase tracking-widest text-white hover:bg-[#E0850A] transition-colors"
+              className="mt-6 block w-full text-center rounded-lg bg-brand-amber px-5 py-3 text-sm font-bold uppercase tracking-widest text-white hover:bg-[#D97706] transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Admissions Open

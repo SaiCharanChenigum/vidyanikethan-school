@@ -26,10 +26,10 @@ function Counter({ end, duration = 2000, suffix = "", text }: { end: number, dur
   return (
     <div ref={ref} className="text-center group relative overflow-hidden py-10 px-4 h-full flex flex-col justify-center">
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <div className="text-5xl md:text-7xl font-bold mb-3 tracking-tighter text-gold-crest font-serif">
+        <div className="text-5xl md:text-7xl font-bold mb-3 tracking-tighter text-brand-amber font-serif">
           {count}{suffix}
         </div>
-        <div className="text-xs md:text-sm font-bold text-[rgba(248,246,240,0.45)] tracking-widest uppercase">
+        <div className="text-xs md:text-sm font-bold text-surface-cloud/60 tracking-widest uppercase">
           {text}
         </div>
       </div>
@@ -46,12 +46,12 @@ export function StatsCounter() {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-navy-midnight border-y border-white/5">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-brand-slate border-y border-white/5">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 sm:gap-y-0 relative items-center">
           
           {stats.map((stat, i) => (
-             <div key={i} className={`relative h-full flex flex-col justify-center sm:py-8 lg:py-0 ${i % 2 === 1 ? 'sm:border-l sm:border-[rgba(255,255,255,0.08)] lg:border-none' : ''} ${i >= 2 ? 'sm:border-t sm:border-[rgba(255,255,255,0.08)] lg:border-t-0' : ''} ${i > 0 ? 'lg:border-l lg:border-[rgba(255,255,255,0.08)]' : ''}`}>
+             <div key={i} className={`relative h-full flex flex-col justify-center sm:py-8 lg:py-0 ${i % 2 === 1 ? 'sm:border-l sm:border-white/10 lg:border-none' : ''} ${i >= 2 ? 'sm:border-t sm:border-white/10 lg:border-t-0' : ''} ${i > 0 ? 'lg:border-l lg:border-white/10' : ''}`}>
               <Counter {...stat} />
             </div>
           ))}

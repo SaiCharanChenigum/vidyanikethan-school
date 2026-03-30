@@ -30,19 +30,19 @@ export function KeyPillars() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-offwhite relative border-y border-border/50">
+    <section className="py-20 md:py-32 bg-surface-white relative border-y border-surface-border">
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <FadeContent className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <div className="inline-block text-[11px] font-bold tracking-widest text-slate uppercase mb-4">
+          <div className="inline-block text-[11px] font-bold tracking-widest text-brand-indigo uppercase mb-4">
             Our Foundation
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-navy-midnight mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-sys-primary mb-4">
             The Three Pillars
           </h2>
-          <div className="h-[3px] w-8 bg-gold-crest mx-auto mb-8"></div>
+          <div className="h-[3px] w-8 bg-brand-indigo mx-auto mb-8 rounded-full"></div>
           
-          <p className="text-slate text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sys-body text-lg font-medium leading-relaxed max-w-2xl mx-auto">
             Our educational philosophy is built upon three core principles that guide every aspect of our students&apos; journey.
           </p>
         </FadeContent>
@@ -55,30 +55,27 @@ export function KeyPillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: pillar.delay, type: "spring", stiffness: 100 }}
-              className="bg-white border border-border p-10 md:p-12 relative flex flex-col items-start group hover:-translate-y-0.5 hover:shadow-xl hover:shadow-navy-midnight/5 transition-all duration-200"
+              className="bg-surface-white border border-surface-border rounded-xl p-10 md:p-12 relative flex flex-col items-start shadow-sm group hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >
-              {/* Accent bar */}
-              <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-navy-royal opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
               {/* Number Label */}
-              <div className="text-[10px] font-bold text-gold-flame mb-6 tracking-widest">
-                {pillar.number}.
+              <div className="text-[10px] font-bold text-brand-indigo mb-6 tracking-widest bg-brand-indigo/5 px-2 py-1 rounded-md">
+                {pillar.number}
               </div>
               
-              {/* Accent bar */}
-              <div className="h-[3px] w-[22px] bg-navy-royal mb-8"></div>
-              
-              <div className="w-14 h-14 rounded-none bg-offwhite border border-border flex items-center justify-center mb-8 text-navy-midnight group-hover:bg-gold-flame group-hover:border-gold-flame group-hover:text-white transition-colors duration-300">
-                <pillar.icon className="h-5 w-5 relative z-10" />
+              <div className="w-14 h-14 rounded-xl bg-surface-cloud border border-surface-border flex items-center justify-center mb-8 text-sys-primary group-hover:bg-brand-indigo group-hover:border-brand-indigo group-hover:text-white transition-colors duration-300">
+                <pillar.icon className="h-6 w-6 relative z-10" />
               </div>
               
-              <h4 className="text-xl font-bold tracking-tight text-navy-midnight mb-4">
+              <h4 className="text-xl font-bold tracking-tight text-sys-primary mb-4">
                 {pillar.title}
               </h4>
               
-              <p className="text-slate leading-relaxed text-sm font-medium">
+              <p className="text-sys-body leading-relaxed text-sm font-medium">
                 {pillar.description}
               </p>
+              
+              {/* Decorative base line */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand-indigo scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 rounded-b-xl"></div>
             </motion.div>
           ))}
         </div>

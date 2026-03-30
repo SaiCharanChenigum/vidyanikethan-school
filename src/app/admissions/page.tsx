@@ -44,44 +44,45 @@ export default function AdmissionsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-offwhite pb-20 relative">
+    <main className="min-h-screen bg-surface-cloud pb-20 relative">
       {isSuccess && (
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 bg-white border border-green-200 shadow-xl rounded-lg p-4 flex items-center gap-3 animate-fade-in">
-          <CheckCircle2 className="w-6 h-6 text-green-500" />
-          <p className="font-bold text-navy-midnight">Enquiry submitted successfully! We will contact you soon.</p>
+          <CheckCircle2 className="w-6 h-6 text-brand-emerald" />
+          <p className="font-bold text-sys-primary">Enquiry submitted successfully! We will contact you soon.</p>
         </div>
       )}
 
-      <section className="bg-navy-midnight py-24 px-6 md:px-12 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-cream mb-4">Admissions 2025–26</h1>
-          <p className="text-xl text-slate">Admissions are now open for Nursery to Class X</p>
+      <section className="bg-brand-slate py-24 px-6 md:px-12 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.03] pointer-events-none"></div>
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-surface-white mb-4">Admissions 2025–26</h1>
+          <p className="text-xl text-surface-white/70">Admissions are now open for Nursery to Class X</p>
         </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-6 md:px-12 pt-16">
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-navy-midnight mb-12">Admission Process</h2>
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-center text-sys-primary mb-12">Admission Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {STEPS.map((step, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm border border-border p-8 relative flex flex-col items-center text-center">
-                <div className="w-14 h-14 bg-gold-flame rounded-full flex items-center justify-center text-white text-xl font-bold mb-6">
+              <div key={idx} className="bg-surface-white rounded-xl shadow-sm border border-surface-border p-10 relative flex flex-col items-center text-center">
+                <div className="w-14 h-14 bg-brand-indigo rounded-full flex items-center justify-center text-white text-xl font-bold mb-6 shadow-sm border-[4px] border-surface-cloud">
                   {step.num}
                 </div>
-                <h3 className="text-xl font-bold text-navy-midnight mb-3">{step.title}</h3>
-                <p className="text-slate">{step.desc}</p>
+                <h3 className="text-xl font-bold text-sys-primary mb-3">{step.title}</h3>
+                <p className="text-sys-body leading-relaxed">{step.desc}</p>
                 {idx < STEPS.length - 1 && (
-                  <div className="hidden md:block absolute top-[60px] left-[60%] w-[80%] h-[2px] bg-border -z-10" />
+                  <div className="hidden md:block absolute top-[70px] left-[60%] w-[80%] h-[2px] bg-surface-border -z-10" />
                 )}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-sm border border-border p-8 md:p-12">
+        <div className="max-w-3xl mx-auto bg-surface-white rounded-xl shadow-md border border-surface-border p-8 md:p-12">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-navy-midnight mb-3">Enquiry Form</h2>
-            <p className="text-slate">Fill out the form below and our admissions team will get in touch with you.</p>
+            <h2 className="text-3xl font-bold text-sys-primary mb-3">Enquiry Form</h2>
+            <p className="text-sys-body">Fill out the form below and our admissions team will get in touch with you.</p>
           </div>
 
           {errorMsg && <div className="p-4 mb-8 bg-red-50 text-red-800 rounded-md border border-red-200">{errorMsg}</div>}
@@ -89,36 +90,36 @@ export default function AdmissionsPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate mb-1">Student Name *</label>
-                <input type="text" name="studentName" required value={formData.studentName} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter student's name" />
+                <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Student Name *</label>
+                <input type="text" name="studentName" required value={formData.studentName} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all" placeholder="Enter student's name" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate mb-1">Parent Name *</label>
-                <input type="text" name="parentName" required value={formData.parentName} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter parent's name" />
+                <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Parent Name *</label>
+                <input type="text" name="parentName" required value={formData.parentName} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all" placeholder="Enter parent's name" />
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate mb-1">Phone Number *</label>
-                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter phone number" />
+                <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Phone Number *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all" placeholder="Enter phone number" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate mb-1">Email (Optional)</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter email address" />
+                <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Email (Optional)</label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all" placeholder="Enter email address" />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate mb-1">Select Grade *</label>
-              <select name="grade" required value={formData.grade} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight bg-white">
+              <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Select Grade *</label>
+              <select name="grade" required value={formData.grade} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all">
                 <option value="" disabled>Select grade looking for</option>
                 {GRADES.map((g) => (<option key={g} value={g}>{g}</option>))}
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate mb-1">Message (Optional)</label>
-              <textarea name="message" rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight resize-none" placeholder="Any specific questions or details?" />
+              <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Message (Optional)</label>
+              <textarea name="message" rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all resize-none" placeholder="Any specific questions or details?" />
             </div>
-            <button type="submit" disabled={isSubmitting} className="w-full py-4 px-6 bg-gold-flame hover:bg-[#E0850A] text-white font-bold text-lg rounded-[7px] transition-colors shadow-sm disabled:opacity-70 mt-4">
+            <button type="submit" disabled={isSubmitting} className="w-full py-4 px-6 bg-brand-amber hover:bg-[#D97706] text-white font-bold text-sm tracking-widest uppercase rounded-lg transition-colors shadow-sm disabled:opacity-70 mt-4 outline-none focus:ring-2 focus:ring-brand-amber focus:ring-offset-2">
               {isSubmitting ? "Submitting..." : "Submit Enquiry"}
             </button>
           </form>

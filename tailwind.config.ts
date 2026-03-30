@@ -11,29 +11,30 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        'navy-midnight': '#0A1628',
-        'navy-royal': '#1C3F8C',
-        'navy-sky': '#4A7DD4',
-        'navy-ink': '#060E1C',
-        'gold-crest': '#D4A843',
-        'gold-flame': '#F0921E',
-        'gold-soft': '#F0C55A',
-        emerald: {
-          DEFAULT: '#1A6B4A',
-          tint: '#E8F5EE',
+        brand: {
+          slate:   '#0F172A',
+          indigo:  '#2563EB',
+          amber:   '#F59E0B',
+          emerald: '#10B981',
         },
-        cream: '#F8F6F0',
-        offwhite: '#FAFAF8',
-        border: '#E2E8F0',
-        slate: '#64748B',
+        surface: {
+          white:   '#FFFFFF',
+          cloud:   '#F8FAFC',
+          border:  '#E2E8F0',
+        },
+        sys: {
+          primary: '#1E293B',
+          body:    '#475569',
+          muted:   '#64748B',
+        }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         pulse_cta: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(240,146,30,0.5)' },
-          '50%': { boxShadow: '0 0 0 10px rgba(240,146,30,0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(245,158,11,0.5)' },
+          '50%': { boxShadow: '0 0 0 10px rgba(245,158,11,0)' },
         },
       },
       animation: {

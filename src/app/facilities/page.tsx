@@ -12,27 +12,28 @@ const facilities = [
 
 export default function FacilitiesPage() {
   return (
-    <main className="min-h-screen bg-offwhite pb-20">
-      <section className="bg-navy-midnight py-24 px-6 md:px-12 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-cream mb-6">Our Facilities</h1>
-          <p className="text-lg md:text-xl text-slate max-w-2xl mx-auto">
+    <main className="min-h-screen bg-surface-cloud pb-20">
+      <section className="bg-brand-slate py-24 px-6 md:px-12 text-center relative overflow-hidden text-surface-white">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.03] pointer-events-none"></div>
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Facilities</h1>
+          <p className="text-lg md:text-xl text-surface-white/70 max-w-2xl mx-auto">
             Everything your child needs to learn, grow and thrive — under one roof.
           </p>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 -mt-10">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 -mt-10 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {facilities.map((fac, idx) => {
             const Icon = fac.icon;
             return (
-              <div key={idx} className="bg-white rounded-xl shadow-sm border border-border p-8 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                <div className="w-12 h-12 rounded-full bg-[#EEF3FF] flex items-center justify-center mb-6">
-                  <Icon className="w-6 h-6 text-navy-royal" strokeWidth={2} />
+              <div key={idx} className="bg-surface-white rounded-xl shadow-sm border border-surface-border p-8 hover:shadow-lg hover:-translate-y-1 hover:border-brand-indigo transition-all duration-300 group">
+                <div className="w-14 h-14 rounded-xl bg-surface-cloud border border-surface-border flex items-center justify-center mb-6 group-hover:bg-brand-indigo group-hover:border-brand-indigo group-hover:text-white transition-colors duration-300">
+                  <Icon className="w-6 h-6 text-brand-indigo group-hover:text-white" strokeWidth={2} />
                 </div>
-                <h3 className="text-xl font-bold text-navy-midnight mb-3">{fac.title}</h3>
-                <p className="text-slate leading-relaxed">{fac.description}</p>
+                <h3 className="text-xl font-bold text-sys-primary mb-3">{fac.title}</h3>
+                <p className="text-sys-body leading-relaxed">{fac.description}</p>
               </div>
             );
           })}

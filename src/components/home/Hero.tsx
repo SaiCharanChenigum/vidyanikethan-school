@@ -54,8 +54,8 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden text-cream min-h-[90vh] flex items-center pt-8 pb-20 lg:pt-0 lg:pb-32 bg-navy-royal">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none"></div>
+    <section className="relative overflow-hidden text-surface-white min-h-[90vh] flex items-center pt-8 pb-20 lg:pt-0 lg:pb-32 bg-brand-slate">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.03] pointer-events-none"></div>
       
       <div className="container relative z-10 mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
@@ -64,14 +64,14 @@ export function Hero() {
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase mb-6 bg-[rgba(212,168,67,0.18)] text-gold-soft border border-[rgba(212,168,67,0.4)]"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold tracking-widest uppercase mb-6 bg-brand-indigo/10 text-brand-indigo border border-brand-indigo/20 shadow-sm"
             >
               Admissions Open for 2025-26
             </motion.div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl mb-6 leading-[1.1] font-bold tracking-tight text-cream">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl mb-6 leading-[1.1] font-bold tracking-tight text-surface-white">
               <SplitText text="Sai Teja's Vidyanikethan" />
-              <span className="text-gold-flame block mt-2">
+              <span className="text-brand-indigo block mt-2">
                 <SplitText text="High School" />
               </span>
             </h1>
@@ -80,14 +80,14 @@ export function Hero() {
               initial={{ filter: "blur(10px)", opacity: 0 }}
               animate={{ filter: "blur(0px)", opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="text-lg md:text-xl text-[rgba(248,246,240,0.5)] mb-8 italic border-l-2 border-gold-crest pl-4 py-1 font-serif"
+              className="text-lg md:text-xl text-surface-cloud/80 mb-8 italic border-l-2 border-brand-indigo pl-4 py-1 font-serif"
             >
               &ldquo;A Glow of Delight on Your Child&apos;s Face&rdquo;
             </motion.p>
             
             <motion.p 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
-              className="text-base text-cream/70 mb-10 max-w-lg leading-relaxed font-normal"
+              className="text-base text-surface-cloud/70 mb-10 max-w-lg leading-relaxed font-medium"
             >
               Empowering students with comprehensive education, ethical values, and integrated development for a brighter tomorrow.
             </motion.p>
@@ -95,13 +95,13 @@ export function Hero() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }} className="flex flex-col sm:flex-row gap-4">
               <Link 
                 href="/admissions" 
-                className="inline-flex justify-center items-center rounded-[7px] bg-gold-flame px-8 py-3.5 text-sm uppercase tracking-widest font-bold text-white transition-all hover:bg-[#E0850A] group"
+                className="inline-flex justify-center items-center rounded-lg bg-brand-amber px-8 py-3.5 text-sm uppercase tracking-widest font-bold text-white transition-all hover:bg-[#D97706] shadow-sm group"
               >
                 Apply Now <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 href="/about" 
-                className="inline-flex justify-center items-center rounded-[7px] border border-[rgba(248,246,240,0.25)] bg-transparent px-8 py-3.5 text-sm uppercase tracking-widest font-semibold text-cream hover:bg-[rgba(255,255,255,0.07)] transition-all"
+                className="inline-flex justify-center items-center rounded-lg border border-surface-white/20 bg-transparent px-8 py-3.5 text-sm uppercase tracking-widest font-semibold text-surface-white hover:bg-surface-white/5 transition-all"
               >
                 Learn More
               </Link>
@@ -114,38 +114,38 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-full max-w-md mx-auto lg:ml-auto"
           >
-            <div className="bg-[rgba(255,255,255,0.07)] backdrop-blur-xl rounded-lg border border-[rgba(255,255,255,0.13)] overflow-hidden relative shadow-2xl">
+            <div className="bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden relative shadow-2xl">
               
               <div className="border-b border-white/10 px-6 py-6 bg-black/20 text-center">
-                <h3 className="text-xl font-bold tracking-tight text-cream uppercase">Admission Enquiry</h3>
-                <div className="h-[2px] w-12 bg-gold-crest mx-auto mt-4 mb-2"></div>
-                <p className="text-[rgba(248,246,240,0.5)] text-xs tracking-wider uppercase">Get in touch with our team</p>
+                <h3 className="text-xl font-bold tracking-tight text-surface-white uppercase">Admission Enquiry</h3>
+                <div className="h-[2px] w-12 bg-brand-indigo mx-auto mt-4 mb-2"></div>
+                <p className="text-surface-cloud/60 text-xs tracking-wider uppercase font-semibold">Get in touch with our team</p>
               </div>
               
               <div className="relative p-6 pt-5">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div>
-                    <label htmlFor="studentName" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(248,246,240,0.5)] mb-2">Student Name</label>
-                    <input {...register("studentName")} className="block w-full rounded-md border border-white/10 bg-[rgba(255,255,255,0.08)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Enter student's name" />
+                    <label htmlFor="studentName" className="block text-xs uppercase tracking-widest font-bold text-surface-cloud/60 mb-2">Student Name</label>
+                    <input {...register("studentName")} className="block w-full rounded-md border border-white/10 bg-white/5 focus:bg-white/10 px-3 py-3 text-surface-white placeholder-white/30 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo transition-all font-medium text-sm" placeholder="Enter student's name" />
                     {errors.studentName && <p className="mt-1 text-xs text-red-400">{errors.studentName.message}</p>}
                   </div>
                   
                   <div>
-                    <label htmlFor="parentName" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(248,246,240,0.5)] mb-2">Parent Name</label>
-                    <input {...register("parentName")} className="block w-full rounded-md border border-white/10 bg-[rgba(255,255,255,0.08)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Enter parent's name" />
+                    <label htmlFor="parentName" className="block text-xs uppercase tracking-widest font-bold text-surface-cloud/60 mb-2">Parent Name</label>
+                    <input {...register("parentName")} className="block w-full rounded-md border border-white/10 bg-white/5 focus:bg-white/10 px-3 py-3 text-surface-white placeholder-white/30 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo transition-all font-medium text-sm" placeholder="Enter parent's name" />
                     {errors.parentName && <p className="mt-1 text-xs text-red-400">{errors.parentName.message}</p>}
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="phone" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(248,246,240,0.5)] mb-2">Phone</label>
-                      <input {...register("phone")} className="block w-full rounded-md border border-white/10 bg-[rgba(255,255,255,0.08)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Mobile number" />
+                      <label htmlFor="phone" className="block text-xs uppercase tracking-widest font-bold text-surface-cloud/60 mb-2">Phone</label>
+                      <input {...register("phone")} className="block w-full rounded-md border border-white/10 bg-white/5 focus:bg-white/10 px-3 py-3 text-surface-white placeholder-white/30 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo transition-all font-medium text-sm" placeholder="Mobile number" />
                       {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone.message}</p>}
                     </div>
                     
                     <div>
-                      <label htmlFor="grade" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(248,246,240,0.5)] mb-2">Grade</label>
-                      <select {...register("grade")} className="block w-full rounded-md border border-white/10 bg-navy-midnight focus:bg-navy-midnight px-3 py-3 text-cream focus:outline-none focus:border-gold-crest transition-all font-medium text-sm">
+                      <label htmlFor="grade" className="block text-xs uppercase tracking-widest font-bold text-surface-cloud/60 mb-2">Grade</label>
+                      <select {...register("grade")} className="block w-full rounded-md border border-white/10 bg-brand-slate focus:bg-brand-slate px-3 py-3 text-surface-white focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo transition-all font-medium text-sm">
                         <option value="">Select</option>
                         <option value="Nursery">Nursery</option>
                         <option value="LKG">LKG</option>
@@ -166,11 +166,11 @@ export function Hero() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(248,246,240,0.5)] mb-2">Email (Optional)</label>
-                    <input {...register("email")} type="email" className="block w-full rounded-md border border-white/10 bg-[rgba(255,255,255,0.08)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Email address" />
+                    <label htmlFor="email" className="block text-xs uppercase tracking-widest font-bold text-surface-cloud/60 mb-2">Email (Optional)</label>
+                    <input {...register("email")} type="email" className="block w-full rounded-md border border-white/10 bg-white/5 focus:bg-white/10 px-3 py-3 text-surface-white placeholder-white/30 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo transition-all font-medium text-sm" placeholder="Email address" />
                   </div>
                   
-                  <button type="submit" disabled={isSubmitting} className="w-full rounded-[7px] bg-gold-flame px-4 py-3.5 text-sm uppercase tracking-widest font-bold text-white hover:bg-[#E0850A] focus:outline-none disabled:opacity-70 transition-all mt-4">
+                  <button type="submit" disabled={isSubmitting} className="w-full rounded-lg bg-brand-amber px-4 py-3.5 text-sm uppercase tracking-widest font-bold text-white hover:bg-[#D97706] focus:outline-none disabled:opacity-70 transition-all mt-4 shadow-sm">
                     {isSubmitting ? "Submitting..." : "Submit Enquiry"}
                   </button>
                 </form>
