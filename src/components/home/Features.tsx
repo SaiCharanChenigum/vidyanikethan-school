@@ -35,10 +35,10 @@ export function Features() {
           <div className="inline-block text-[11px] font-bold tracking-widest text-slate uppercase mb-4">
             Why Choose Us
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-navy-deep mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-navy-midnight mb-4">
             World-Class Facilities
           </h2>
-          <div className="h-[3px] w-12 bg-gold-crest mx-auto mb-8"></div>
+          <div className="h-[3px] w-8 bg-gold-crest mx-auto mb-8"></div>
           
           <p className="text-slate text-lg font-medium leading-relaxed max-w-2xl mx-auto">
             We provide comprehensive facilities to support every aspect of student life and learning.
@@ -56,12 +56,12 @@ export function Features() {
             <motion.div 
               key={index}
               variants={itemVariants}
-              className="bg-pearl border border-border p-6 md:p-8 text-center flex flex-col items-center justify-center hover:-translate-y-1 hover:border-gold-crest transition-all duration-300 group"
+              className="bg-offwhite border border-border p-6 md:p-8 text-center flex flex-col items-center justify-center hover:-translate-y-0.5 hover:border-gold-flame transition-all duration-200 group"
             >
-              <div className="w-12 h-12 rounded-none bg-white border border-border shadow-sm flex items-center justify-center mb-5 text-navy-deep group-hover:bg-gold-crest group-hover:border-gold-crest group-hover:text-navy-deep transition-colors duration-300">
+              <div className="w-12 h-12 rounded-none bg-white border border-border shadow-sm flex items-center justify-center mb-5 text-navy-midnight group-hover:bg-gold-flame group-hover:border-gold-flame group-hover:text-white transition-colors duration-300">
                 <feature.icon className="h-5 w-5" />
               </div>
-              <h4 className="text-[11px] font-bold tracking-widest uppercase text-navy-deep leading-relaxed">
+              <h4 className="text-[11px] font-bold tracking-widest uppercase text-navy-midnight leading-relaxed">
                 {feature.name}
               </h4>
             </motion.div>

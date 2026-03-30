@@ -30,17 +30,17 @@ export function KeyPillars() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-pearl relative border-y border-border/50">
+    <section className="py-20 md:py-32 bg-offwhite relative border-y border-border/50">
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <FadeContent className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <div className="inline-block text-[11px] font-bold tracking-widest text-slate uppercase mb-4">
             Our Foundation
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-navy-deep mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-navy-midnight mb-4">
             The Three Pillars
           </h2>
-          <div className="h-[3px] w-12 bg-gold-crest mx-auto mb-8"></div>
+          <div className="h-[3px] w-8 bg-gold-crest mx-auto mb-8"></div>
           
           <p className="text-slate text-lg font-medium leading-relaxed max-w-2xl mx-auto">
             Our educational philosophy is built upon three core principles that guide every aspect of our students&apos; journey.
@@ -55,24 +55,24 @@ export function KeyPillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: pillar.delay, type: "spring", stiffness: 100 }}
-              className="bg-white border border-border p-10 md:p-12 relative flex flex-col items-start group hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-deep/5 transition-all duration-500"
+              className="bg-white border border-border p-10 md:p-12 relative flex flex-col items-start group hover:-translate-y-0.5 hover:shadow-xl hover:shadow-navy-midnight/5 transition-all duration-200"
             >
               {/* Accent bar */}
-              <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-royal opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-navy-royal opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Number Label */}
-              <div className="text-[10px] font-bold text-gold-crest mb-8 tracking-widest">
+              <div className="text-[10px] font-bold text-gold-flame mb-6 tracking-widest">
                 {pillar.number}.
               </div>
               
-              {/* Accent bar under number */}
-              <div className="h-[2px] w-5 bg-royal mb-8"></div>
+              {/* Accent bar */}
+              <div className="h-[3px] w-[22px] bg-navy-royal mb-8"></div>
               
-              <div className="w-14 h-14 rounded-none bg-pearl border border-border flex items-center justify-center mb-8 text-navy-deep group-hover:bg-gold-crest group-hover:border-gold-crest group-hover:text-navy-deep transition-colors duration-500">
+              <div className="w-14 h-14 rounded-none bg-offwhite border border-border flex items-center justify-center mb-8 text-navy-midnight group-hover:bg-gold-flame group-hover:border-gold-flame group-hover:text-white transition-colors duration-300">
                 <pillar.icon className="h-5 w-5 relative z-10" />
               </div>
               
-              <h4 className="text-xl font-bold tracking-tight text-navy-deep mb-4">
+              <h4 className="text-xl font-bold tracking-tight text-navy-midnight mb-4">
                 {pillar.title}
               </h4>
               

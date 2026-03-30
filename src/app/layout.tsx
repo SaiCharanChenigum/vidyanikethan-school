@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
@@ -28,12 +29,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col selection:bg-gold-crest selection:text-navy-deep bg-pearl text-navy-deep font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col selection:bg-gold-crest selection:text-navy-midnight bg-offwhite text-navy-midnight font-sans`}
       >
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster />
+
+        {/* Floating Admissions CTA */}
+        <Link
+          href="/admissions"
+          className="fixed bottom-6 right-6 z-50 bg-gold-flame text-white font-bold text-sm px-5 py-3 rounded-lg shadow-lg hover:bg-[#E0850A] transition-colors animate-pulse-cta"
+        >
+          Admissions Open
+        </Link>
       </body>
     </html>
   );

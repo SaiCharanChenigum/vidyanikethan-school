@@ -4,39 +4,16 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { CheckCircle2 } from "lucide-react";
 
-const GRADES = [
-  "Nursery", "LKG", "UKG", 
-  "Class I", "Class II", "Class III", "Class IV", "Class V", 
-  "Class VI", "Class VII", "Class VIII", "Class IX", "Class X"
-];
+const GRADES = ["Nursery", "LKG", "UKG", "Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI", "Class VII", "Class VIII", "Class IX", "Class X"];
 
 const STEPS = [
-  {
-    num: "1",
-    title: "Fill Enquiry Form",
-    desc: "Submit your details below to express your interest.",
-  },
-  {
-    num: "2",
-    title: "Visit Campus",
-    desc: "Take a tour and interact with our admission team.",
-  },
-  {
-    num: "3",
-    title: "Confirm Admission",
-    desc: "Complete documentation and secure your child's seat.",
-  },
+  { num: "1", title: "Fill Enquiry Form", desc: "Submit your details below to express your interest." },
+  { num: "2", title: "Visit Campus", desc: "Take a tour and interact with our admission team." },
+  { num: "3", title: "Confirm Admission", desc: "Complete documentation and secure your child's seat." },
 ];
 
 export default function AdmissionsPage() {
-  const [formData, setFormData] = useState({
-    studentName: "",
-    parentName: "",
-    phone: "",
-    email: "",
-    grade: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ studentName: "", parentName: "", phone: "", email: "", grade: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -49,80 +26,49 @@ export default function AdmissionsPage() {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMsg(null);
-
     try {
-      const res = await fetch("/api/admissions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) {
-        throw new Error("Failed to submit enquiry to database");
-      }
-
+      const res = await fetch("/api/admissions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      if (!res.ok) throw new Error("Failed to submit");
       try {
-        await emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_id",
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_id",
-          {
-            student_name: formData.studentName,
-            parent_name: formData.parentName,
-            phone: formData.phone,
-            email: formData.email,
-            grade: formData.grade,
-            message: formData.message,
-          },
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key"
-        );
-      } catch (emailErr) {
-        console.warn("EmailJS warning:", emailErr);
-      }
-
+        await emailjs.send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_id", process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_id",
+          { student_name: formData.studentName, parent_name: formData.parentName, phone: formData.phone, email: formData.email, grade: formData.grade, message: formData.message },
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key");
+      } catch (emailErr) { console.warn("EmailJS warning:", emailErr); }
       setIsSuccess(true);
       setFormData({ studentName: "", parentName: "", phone: "", email: "", grade: "", message: "" });
-      
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error: unknown) {
       console.error(error);
       setErrorMsg("Failed to submit your enquiry. Please try again later or contact us directly.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    } finally { setIsSubmitting(false); }
   };
 
   return (
-    <main className="min-h-screen bg-pearl pb-20 relative">
-      
-      {/* Toast Notification */}
+    <main className="min-h-screen bg-offwhite pb-20 relative">
       {isSuccess && (
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 bg-white border border-green-200 shadow-xl rounded-lg p-4 flex items-center gap-3 animate-fade-in">
           <CheckCircle2 className="w-6 h-6 text-green-500" />
-          <p className="font-bold text-navy-deep">Enquiry submitted successfully! We will contact you soon.</p>
+          <p className="font-bold text-navy-midnight">Enquiry submitted successfully! We will contact you soon.</p>
         </div>
       )}
 
-      {/* Hero Banner */}
-      <section className="bg-navy-deep py-24 px-6 md:px-12 text-center">
+      <section className="bg-navy-midnight py-24 px-6 md:px-12 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-cream mb-4">Admissions 2025–26</h1>
           <p className="text-xl text-slate">Admissions are now open for Nursery to Class X</p>
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 pt-16">
-        
-        {/* Process Steps */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-navy-deep mb-12">Admission Process</h2>
+          <h2 className="text-3xl font-bold text-center text-navy-midnight mb-12">Admission Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {STEPS.map((step, idx) => (
               <div key={idx} className="bg-white rounded-xl shadow-sm border border-border p-8 relative flex flex-col items-center text-center">
-                <div className="w-14 h-14 bg-gold-crest rounded-full flex items-center justify-center text-navy-deep text-xl font-bold mb-6">
+                <div className="w-14 h-14 bg-gold-flame rounded-full flex items-center justify-center text-white text-xl font-bold mb-6">
                   {step.num}
                 </div>
-                <h3 className="text-xl font-bold text-navy-deep mb-3">{step.title}</h3>
+                <h3 className="text-xl font-bold text-navy-midnight mb-3">{step.title}</h3>
                 <p className="text-slate">{step.desc}</p>
                 {idx < STEPS.length - 1 && (
                   <div className="hidden md:block absolute top-[60px] left-[60%] w-[80%] h-[2px] bg-border -z-10" />
@@ -132,106 +78,47 @@ export default function AdmissionsPage() {
           </div>
         </div>
 
-        {/* Enquiry Form */}
         <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-sm border border-border p-8 md:p-12">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-navy-deep mb-3">Enquiry Form</h2>
+            <h2 className="text-3xl font-bold text-navy-midnight mb-3">Enquiry Form</h2>
             <p className="text-slate">Fill out the form below and our admissions team will get in touch with you.</p>
           </div>
 
-          {errorMsg && (
-            <div className="p-4 mb-8 bg-red-50 text-red-800 rounded-md border border-red-200">
-              {errorMsg}
-            </div>
-          )}
+          {errorMsg && <div className="p-4 mb-8 bg-red-50 text-red-800 rounded-md border border-red-200">{errorMsg}</div>}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate mb-1">Student Name *</label>
-                <input
-                  type="text"
-                  name="studentName"
-                  required
-                  value={formData.studentName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-gold-crest text-navy-deep"
-                  placeholder="Enter student's name"
-                />
+                <input type="text" name="studentName" required value={formData.studentName} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter student's name" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate mb-1">Parent Name *</label>
-                <input
-                  type="text"
-                  name="parentName"
-                  required
-                  value={formData.parentName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-gold-crest text-navy-deep"
-                  placeholder="Enter parent's name"
-                />
+                <input type="text" name="parentName" required value={formData.parentName} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter parent's name" />
               </div>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate mb-1">Phone Number *</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-gold-crest text-navy-deep"
-                  placeholder="Enter phone number"
-                />
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter phone number" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate mb-1">Email (Optional)</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-gold-crest text-navy-deep"
-                  placeholder="Enter email address"
-                />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight" placeholder="Enter email address" />
               </div>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-slate mb-1">Select Grade *</label>
-              <select
-                name="grade"
-                required
-                value={formData.grade}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-gold-crest text-navy-deep bg-white"
-              >
+              <select name="grade" required value={formData.grade} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight bg-white">
                 <option value="" disabled>Select grade looking for</option>
-                {GRADES.map((g) => (
-                  <option key={g} value={g}>{g}</option>
-                ))}
+                {GRADES.map((g) => (<option key={g} value={g}>{g}</option>))}
               </select>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-slate mb-1">Message (Optional)</label>
-              <textarea
-                name="message"
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-gold-crest text-navy-deep resize-none"
-                placeholder="Any specific questions or details?"
-              />
+              <textarea name="message" rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-navy-royal text-navy-midnight resize-none" placeholder="Any specific questions or details?" />
             </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-4 px-6 bg-gold-crest hover:bg-gold-flame text-navy-deep font-bold text-lg rounded-md transition-colors shadow-sm disabled:opacity-70 mt-4"
-            >
+            <button type="submit" disabled={isSubmitting} className="w-full py-4 px-6 bg-gold-flame hover:bg-[#E0850A] text-white font-bold text-lg rounded-[7px] transition-colors shadow-sm disabled:opacity-70 mt-4">
               {isSubmitting ? "Submitting..." : "Submit Enquiry"}
             </button>
           </form>
