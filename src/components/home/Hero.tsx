@@ -48,13 +48,13 @@ export function Hero() {
 
       toast({ title: "Enquiry Submitted Successfully!", description: "We have received your details and will contact you soon." });
       reset();
-    } catch (error) {
+    } catch (_err) {
       toast({ title: "Submission Failed", description: "There was an error saving your enquiry. Please try again.", variant: "destructive" });
     }
   };
 
   return (
-    <section className="relative overflow-hidden text-cream min-h-[90vh] flex items-center pt-8 pb-20 lg:pt-0 lg:pb-32 bg-charcoal">
+    <section className="relative overflow-hidden text-cream min-h-[90vh] flex items-center pt-8 pb-20 lg:pt-0 lg:pb-32 bg-royal">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none"></div>
       
       <div className="container relative z-10 mx-auto px-4 py-16 sm:px-6 lg:px-8">
@@ -64,15 +64,14 @@ export function Hero() {
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-block text-xs font-semibold tracking-widest text-soft-gold uppercase mb-6"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest uppercase mb-6 bg-[rgba(201,164,64,0.15)] text-gold-soft border border-[rgba(201,164,64,0.35)]"
             >
-              Admissions Open for 2024-25
-              <div className="h-[2px] w-8 bg-gold mt-2"></div>
+              Admissions Open for 2025-26
             </motion.div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl mb-6 leading-[1.1] font-bold tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl mb-6 leading-[1.1] font-bold tracking-tight text-cream">
               <SplitText text="Sai Teja's Vidyanikethan" />
-              <span className="text-gold block mt-2">
+              <span className="text-gold-flame block mt-2">
                 <SplitText text="High School" />
               </span>
             </h1>
@@ -81,9 +80,9 @@ export function Hero() {
               initial={{ filter: "blur(10px)", opacity: 0 }}
               animate={{ filter: "blur(0px)", opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="text-lg md:text-xl text-stone mb-8 italic border-l-2 border-gold pl-4 py-1 font-serif"
+              className="text-lg md:text-xl text-[rgba(240,235,216,0.5)] mb-8 italic border-l-2 border-gold-crest pl-4 py-1 font-serif"
             >
-              "A Glow of Delight on Your Child's Face"
+              &ldquo;A Glow of Delight on Your Child&apos;s Face&rdquo;
             </motion.p>
             
             <motion.p 
@@ -96,13 +95,13 @@ export function Hero() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }} className="flex flex-col sm:flex-row gap-4">
               <Link 
                 href="/admissions" 
-                className="inline-flex justify-center items-center rounded-none bg-gold px-8 py-3.5 text-sm uppercase tracking-widest font-semibold text-charcoal transition-all hover:bg-opacity-90 group"
+                className="inline-flex justify-center items-center rounded-none bg-gold-crest px-8 py-3.5 text-sm uppercase tracking-widest font-bold text-navy-deep transition-all hover:bg-gold-flame group"
               >
                 Apply Now <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 href="/about" 
-                className="inline-flex justify-center items-center rounded-none border border-warm-border/30 bg-transparent px-8 py-3.5 text-sm uppercase tracking-widest font-semibold text-cream hover:border-gold hover:text-gold transition-all"
+                className="inline-flex justify-center items-center rounded-none border border-[rgba(240,235,216,0.25)] bg-transparent px-8 py-3.5 text-sm uppercase tracking-widest font-semibold text-cream hover:bg-[rgba(255,255,255,0.07)] transition-all"
               >
                 Learn More
               </Link>
@@ -115,38 +114,38 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-full max-w-md mx-auto lg:ml-auto"
           >
-            <div className="bg-white/[0.04] backdrop-blur-xl rounded-none border border-white/10 overflow-hidden relative shadow-2xl">
+            <div className="bg-[rgba(255,255,255,0.06)] backdrop-blur-xl rounded-none border border-[rgba(255,255,255,0.12)] overflow-hidden relative shadow-2xl">
               
               <div className="border-b border-white/10 px-6 py-6 bg-black/20 text-center">
                 <h3 className="text-xl font-bold tracking-tight text-cream uppercase">Admission Enquiry</h3>
-                <div className="h-[2px] w-12 bg-gold mx-auto mt-4 mb-2"></div>
-                <p className="text-stone text-xs tracking-wider uppercase">Get in touch with our team</p>
+                <div className="h-[2px] w-12 bg-gold-crest mx-auto mt-4 mb-2"></div>
+                <p className="text-[rgba(240,235,216,0.5)] text-xs tracking-wider uppercase">Get in touch with our team</p>
               </div>
               
               <div className="relative p-6 pt-5">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div>
-                    <label htmlFor="studentName" className="block text-xs uppercase tracking-widest font-semibold text-stone mb-2">Student Name</label>
-                    <input {...register("studentName")} className="block w-full rounded-none border border-white/10 bg-black/20 focus:bg-white/5 px-3 py-3 text-cream placeholder-stone/50 focus:outline-none focus:border-gold transition-all font-medium text-sm" placeholder="Enter student's name" />
+                    <label htmlFor="studentName" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(240,235,216,0.5)] mb-2">Student Name</label>
+                    <input {...register("studentName")} className="block w-full rounded-none border border-white/10 bg-[rgba(255,255,255,0.07)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Enter student's name" />
                     {errors.studentName && <p className="mt-1 text-xs text-red-400">{errors.studentName.message}</p>}
                   </div>
                   
                   <div>
-                    <label htmlFor="parentName" className="block text-xs uppercase tracking-widest font-semibold text-stone mb-2">Parent Name</label>
-                    <input {...register("parentName")} className="block w-full rounded-none border border-white/10 bg-black/20 focus:bg-white/5 px-3 py-3 text-cream placeholder-stone/50 focus:outline-none focus:border-gold transition-all font-medium text-sm" placeholder="Enter parent's name" />
+                    <label htmlFor="parentName" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(240,235,216,0.5)] mb-2">Parent Name</label>
+                    <input {...register("parentName")} className="block w-full rounded-none border border-white/10 bg-[rgba(255,255,255,0.07)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Enter parent's name" />
                     {errors.parentName && <p className="mt-1 text-xs text-red-400">{errors.parentName.message}</p>}
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="phone" className="block text-xs uppercase tracking-widest font-semibold text-stone mb-2">Phone</label>
-                      <input {...register("phone")} className="block w-full rounded-none border border-white/10 bg-black/20 focus:bg-white/5 px-3 py-3 text-cream placeholder-stone/50 focus:outline-none focus:border-gold transition-all font-medium text-sm" placeholder="Mobile number" />
+                      <label htmlFor="phone" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(240,235,216,0.5)] mb-2">Phone</label>
+                      <input {...register("phone")} className="block w-full rounded-none border border-white/10 bg-[rgba(255,255,255,0.07)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Mobile number" />
                       {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone.message}</p>}
                     </div>
                     
                     <div>
-                      <label htmlFor="grade" className="block text-xs uppercase tracking-widest font-semibold text-stone mb-2">Grade</label>
-                      <select {...register("grade")} className="block w-full rounded-none border border-white/10 bg-charcoal focus:bg-charcoal px-3 py-3 text-cream focus:outline-none focus:border-gold transition-all font-medium text-sm">
+                      <label htmlFor="grade" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(240,235,216,0.5)] mb-2">Grade</label>
+                      <select {...register("grade")} className="block w-full rounded-none border border-white/10 bg-navy-deep focus:bg-navy-deep px-3 py-3 text-cream focus:outline-none focus:border-gold-crest transition-all font-medium text-sm">
                         <option value="">Select</option>
                         <option value="Nursery">Nursery</option>
                         <option value="LKG">LKG</option>
@@ -167,11 +166,11 @@ export function Hero() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-xs uppercase tracking-widest font-semibold text-stone mb-2">Email (Optional)</label>
-                    <input {...register("email")} type="email" className="block w-full rounded-none border border-white/10 bg-black/20 focus:bg-white/5 px-3 py-3 text-cream placeholder-stone/50 focus:outline-none focus:border-gold transition-all font-medium text-sm" placeholder="Email address" />
+                    <label htmlFor="email" className="block text-xs uppercase tracking-widest font-semibold text-[rgba(240,235,216,0.5)] mb-2">Email (Optional)</label>
+                    <input {...register("email")} type="email" className="block w-full rounded-none border border-white/10 bg-[rgba(255,255,255,0.07)] focus:bg-white/5 px-3 py-3 text-cream placeholder-white/30 focus:outline-none focus:border-gold-crest transition-all font-medium text-sm" placeholder="Email address" />
                   </div>
                   
-                  <button type="submit" disabled={isSubmitting} className="w-full rounded-none bg-gold px-4 py-3.5 text-sm uppercase tracking-widest font-bold text-charcoal hover:bg-opacity-90 focus:outline-none disabled:opacity-70 transition-all mt-4">
+                  <button type="submit" disabled={isSubmitting} className="w-full rounded-none bg-gold-crest px-4 py-3.5 text-sm uppercase tracking-widest font-bold text-navy-deep hover:bg-gold-flame focus:outline-none disabled:opacity-70 transition-all mt-4">
                     {isSubmitting ? "Submitting..." : "Submit Enquiry"}
                   </button>
                 </form>

@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { GraduationCap, Users, Trophy, Award } from "lucide-react";
+import { useInView } from "framer-motion";
 
 function Counter({ end, duration = 2000, suffix = "", text }: { end: number, duration?: number, suffix?: string, text: string }) {
   const [count, setCount] = useState(0);
@@ -27,10 +26,10 @@ function Counter({ end, duration = 2000, suffix = "", text }: { end: number, dur
   return (
     <div ref={ref} className="text-center group relative overflow-hidden py-10 px-4 h-full flex flex-col justify-center">
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <div className="text-5xl md:text-7xl font-bold mb-3 tracking-tighter text-cream font-serif">
+        <div className="text-5xl md:text-7xl font-bold mb-3 tracking-tighter text-gold-crest font-serif">
           {count}{suffix}
         </div>
-        <div className="text-xs md:text-sm font-bold text-soft-gold tracking-widest uppercase">
+        <div className="text-xs md:text-sm font-bold text-[rgba(240,235,216,0.5)] tracking-widest uppercase">
           {text}
         </div>
       </div>
@@ -47,7 +46,7 @@ export function StatsCounter() {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-charcoal border-y border-white/5">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-navy-deep border-y border-white/5">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 sm:gap-y-0 relative items-center">
           

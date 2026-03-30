@@ -36,12 +36,12 @@ const facilities = [
 
 export default function FacilitiesPage() {
   return (
-    <main className="min-h-screen bg-ivory pb-20">
+    <main className="min-h-screen bg-pearl pb-20">
       {/* Hero Banner */}
-      <section className="bg-charcoal py-24 px-6 md:px-12 text-center">
+      <section className="bg-navy-deep py-24 px-6 md:px-12 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-cream mb-6">Our Facilities</h1>
-          <p className="text-lg md:text-xl text-stone max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate max-w-2xl mx-auto">
             Everything your child needs to learn, grow and thrive — under one roof.
           </p>
         </div>
@@ -55,13 +55,13 @@ export default function FacilitiesPage() {
             return (
               <div 
                 key={idx} 
-                className="bg-white rounded-xl shadow-sm border border-warm-border p-8 hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl shadow-sm border border-border p-8 hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center mb-6">
-                  <Icon className="w-6 h-6 text-gold" strokeWidth={2} />
+                <div className="w-12 h-12 rounded-full bg-pearl flex items-center justify-center mb-6">
+                  <Icon className="w-6 h-6 text-gold-crest" strokeWidth={2} />
                 </div>
-                <h3 className="text-xl font-bold text-charcoal mb-3">{fac.title}</h3>
-                <p className="text-stone leading-relaxed">
+                <h3 className="text-xl font-bold text-navy-deep mb-3">{fac.title}</h3>
+                <p className="text-slate leading-relaxed">
                   {fac.description}
                 </p>
               </div>

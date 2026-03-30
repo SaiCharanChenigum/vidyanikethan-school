@@ -30,20 +30,20 @@ export function KeyPillars() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-ivory relative border-y border-warm-border/50">
+    <section className="py-20 md:py-32 bg-pearl relative border-y border-border/50">
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <FadeContent className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <div className="inline-block text-[11px] font-bold tracking-widest text-stone uppercase mb-4">
+          <div className="inline-block text-[11px] font-bold tracking-widest text-slate uppercase mb-4">
             Our Foundation
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-charcoal mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-navy-deep mb-4">
             The Three Pillars
           </h2>
-          <div className="h-[3px] w-12 bg-gold mx-auto mb-8"></div>
+          <div className="h-[3px] w-12 bg-gold-crest mx-auto mb-8"></div>
           
-          <p className="text-stone text-lg font-medium leading-relaxed max-w-2xl mx-auto">
-            Our educational philosophy is built upon three core principles that guide every aspect of our students' journey.
+          <p className="text-slate text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+            Our educational philosophy is built upon three core principles that guide every aspect of our students&apos; journey.
           </p>
         </FadeContent>
 
@@ -55,25 +55,28 @@ export function KeyPillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: pillar.delay, type: "spring", stiffness: 100 }}
-              className="bg-white border border-warm-border p-10 md:p-12 relative flex flex-col items-start group hover:-translate-y-1 hover:shadow-xl hover:shadow-charcoal/5 transition-all duration-500"
+              className="bg-white border border-border p-10 md:p-12 relative flex flex-col items-start group hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-deep/5 transition-all duration-500"
             >
-              {/* 2px gold left accent line */}
-              <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Accent bar */}
+              <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-royal opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Number Label */}
-              <div className="text-xl font-bold text-soft-gold/40 mb-8 font-serif tracking-widest">
+              <div className="text-[10px] font-bold text-gold-crest mb-8 tracking-widest">
                 {pillar.number}.
               </div>
               
-              <div className="w-14 h-14 rounded-none bg-ivory border border-warm-border flex items-center justify-center mb-8 text-charcoal group-hover:bg-gold group-hover:border-gold group-hover:text-charcoal transition-colors duration-500">
+              {/* Accent bar under number */}
+              <div className="h-[2px] w-5 bg-royal mb-8"></div>
+              
+              <div className="w-14 h-14 rounded-none bg-pearl border border-border flex items-center justify-center mb-8 text-navy-deep group-hover:bg-gold-crest group-hover:border-gold-crest group-hover:text-navy-deep transition-colors duration-500">
                 <pillar.icon className="h-5 w-5 relative z-10" />
               </div>
               
-              <h4 className="text-xl font-bold tracking-tight text-charcoal mb-4">
+              <h4 className="text-xl font-bold tracking-tight text-navy-deep mb-4">
                 {pillar.title}
               </h4>
               
-              <p className="text-stone leading-relaxed text-sm font-medium">
+              <p className="text-slate leading-relaxed text-sm font-medium">
                 {pillar.description}
               </p>
             </motion.div>

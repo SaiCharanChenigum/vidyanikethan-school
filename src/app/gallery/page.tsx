@@ -6,15 +6,15 @@ const categories = ["All", "Campus", "Events", "Classrooms"] as const;
 type Category = typeof categories[number];
 
 const photos = [
-  { id: 1, category: "Campus", url: "https://placehold.co/600x400/111827/F3EDD5?text=Campus+1" },
-  { id: 2, category: "Campus", url: "https://placehold.co/600x400/111827/F3EDD5?text=Campus+2" },
-  { id: 3, category: "Campus", url: "https://placehold.co/600x400/111827/F3EDD5?text=Campus+3" },
-  { id: 4, category: "Events", url: "https://placehold.co/600x400/111827/F3EDD5?text=Events+1" },
-  { id: 5, category: "Events", url: "https://placehold.co/600x400/111827/F3EDD5?text=Events+2" },
-  { id: 6, category: "Events", url: "https://placehold.co/600x400/111827/F3EDD5?text=Events+3" },
-  { id: 7, category: "Classrooms", url: "https://placehold.co/600x400/111827/F3EDD5?text=Classroom+1" },
-  { id: 8, category: "Classrooms", url: "https://placehold.co/600x400/111827/F3EDD5?text=Classroom+2" },
-  { id: 9, category: "Classrooms", url: "https://placehold.co/600x400/111827/F3EDD5?text=Classroom+3" },
+  { id: 1, category: "Campus", url: "https://placehold.co/600x400/0F2254/F0EBD8?text=Campus+1" },
+  { id: 2, category: "Campus", url: "https://placehold.co/600x400/0F2254/F0EBD8?text=Campus+2" },
+  { id: 3, category: "Campus", url: "https://placehold.co/600x400/0F2254/F0EBD8?text=Campus+3" },
+  { id: 4, category: "Events", url: "https://placehold.co/600x400/1B3A8C/F0EBD8?text=Events+1" },
+  { id: 5, category: "Events", url: "https://placehold.co/600x400/1B3A8C/F0EBD8?text=Events+2" },
+  { id: 6, category: "Events", url: "https://placehold.co/600x400/1B3A8C/F0EBD8?text=Events+3" },
+  { id: 7, category: "Classrooms", url: "https://placehold.co/600x400/081640/F0EBD8?text=Classroom+1" },
+  { id: 8, category: "Classrooms", url: "https://placehold.co/600x400/081640/F0EBD8?text=Classroom+2" },
+  { id: 9, category: "Classrooms", url: "https://placehold.co/600x400/081640/F0EBD8?text=Classroom+3" },
 ];
 
 export default function GalleryPage() {
@@ -26,9 +26,9 @@ export default function GalleryPage() {
       : photos.filter((p) => p.category === activeTab);
 
   return (
-    <main className="min-h-screen bg-ivory pb-20">
+    <main className="min-h-screen bg-pearl pb-20">
       {/* Hero Banner */}
-      <section className="bg-charcoal py-24 px-6 md:px-12 text-center">
+      <section className="bg-navy-deep py-24 px-6 md:px-12 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-cream">Gallery</h1>
         </div>
@@ -45,8 +45,8 @@ export default function GalleryPage() {
               onClick={() => setActiveTab(cat)}
               className={`px-6 py-2 rounded-full font-medium transition-colors ${
                 activeTab === cat
-                  ? "bg-gold text-charcoal"
-                  : "bg-ivory text-stone hover:bg-warm-border"
+                  ? "bg-gold-crest text-navy-deep"
+                  : "bg-pearl text-slate hover:bg-border"
               }`}
             >
               {cat}
@@ -59,7 +59,7 @@ export default function GalleryPage() {
           {filteredPhotos.map((photo) => (
             <div
               key={photo.id}
-              className="bg-white rounded-xl overflow-hidden shadow-sm border border-warm-border group"
+              className="bg-white rounded-xl overflow-hidden shadow-sm border border-border group"
             >
               <div className="aspect-[3/2] overflow-hidden">
                 <img
