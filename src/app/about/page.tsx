@@ -43,9 +43,11 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="aspect-video bg-surface-white rounded-xl border border-surface-border p-2 shadow-sm">
-            <div className="w-full h-full bg-surface-cloud rounded-lg border border-dashed border-surface-border flex items-center justify-center text-sys-muted font-bold tracking-widest uppercase text-sm">
-              School Campus Image Placeholder
-            </div>
+            <img 
+              src="/images/Full_campus.jpg" 
+              alt="Vidyanikethan Campus" 
+              className="w-full h-full object-cover rounded-lg"
+            />
           </div>
         </div>
       </section>

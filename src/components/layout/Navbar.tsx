@@ -47,7 +47,7 @@ export function Navbar() {
                   Vidyanikethan
                 </span>
                 <span className="text-[10px] font-bold tracking-widest text-brand-indigo uppercase leading-tight mt-0.5">
-                  CBSE &middot; Nursery to Class X
+                  Nursery to Class X
                 </span>
               </div>
             </Link>

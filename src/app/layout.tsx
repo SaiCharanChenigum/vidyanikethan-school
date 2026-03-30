@@ -20,6 +20,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Sai Teja's Vidyanikethan High School",
   description: "Official website of Sai Teja's Vidyanikethan High School",
+  icons: {
+    icon: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({

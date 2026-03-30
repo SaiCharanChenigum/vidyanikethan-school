@@ -69,7 +69,7 @@ export function Hero() {
               Admissions Open for 2025-26
             </motion.div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl mb-6 leading-[1.1] font-bold tracking-tight text-surface-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl mb-6 leading-[1.1] font-bold tracking-tight text-surface-white uppercase">
               <SplitText text="Sai Teja's Vidyanikethan" />
               <span className="text-brand-indigo block mt-2">
                 <SplitText text="High School" />
