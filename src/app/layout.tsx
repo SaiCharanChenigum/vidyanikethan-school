@@ -40,13 +40,7 @@ export default function RootLayout({
         <Footer />
         <Toaster />
 
-        {/* Floating Admissions CTA */}
-        <Link
-          href="/admissions"
-          className="fixed bottom-6 right-6 z-50 bg-brand-amber text-white font-bold text-sm px-5 py-3 rounded-lg shadow-lg hover:bg-[#D97706] transition-colors animate-pulse-cta"
-        >
-          Admissions Open
-        </Link>
+
       </body>
     </html>
   );

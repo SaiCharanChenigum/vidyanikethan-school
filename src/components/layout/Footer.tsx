@@ -83,13 +83,13 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h4 className="text-xs tracking-widest uppercase font-bold mb-6 text-white/40">Connect</h4>
             <div className="flex space-x-4">
-              <Link href="#" className="h-10 w-10 flex items-center justify-center border border-white/10 rounded-lg text-white/60 hover:bg-brand-indigo hover:text-white hover:border-brand-indigo transition-all duration-300">
+              <Link href="https://www.facebook.com/saiteja.vidyanikethanhighschool?rdid=KtbvMYQDl6knJsir&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18XssUyKRZ%2F#" target="_blank" rel="noopener noreferrer" className="h-10 w-10 flex items-center justify-center border border-white/10 rounded-lg text-white/60 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300">
                 <Facebook className="h-4 w-4" />
               </Link>
-              <Link href="#" className="h-10 w-10 flex items-center justify-center border border-white/10 rounded-lg text-white/60 hover:bg-brand-indigo hover:text-white hover:border-brand-indigo transition-all duration-300">
+              <Link href="https://www.instagram.com/vidyanikethan_official?igsh=MW91bHc5ZWQwNGdrMw%3D%3D" target="_blank" rel="noopener noreferrer" className="h-10 w-10 flex items-center justify-center border border-white/10 rounded-lg text-white/60 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white hover:border-transparent transition-all duration-300">
                 <Instagram className="h-4 w-4" />
               </Link>
-              <Link href="#" className="h-10 w-10 flex items-center justify-center border border-white/10 rounded-lg text-white/60 hover:bg-brand-indigo hover:text-white hover:border-brand-indigo transition-all duration-300">
+              <Link href="https://youtube.com/@saitejasvidyanikethanhighs7510?si=jtsqVSd_C8I-34oA" target="_blank" rel="noopener noreferrer" className="h-10 w-10 flex items-center justify-center border border-white/10 rounded-lg text-white/60 hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all duration-300">
                 <Youtube className="h-4 w-4" />
               </Link>
             </div>

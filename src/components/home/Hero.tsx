@@ -57,6 +57,49 @@ export function Hero() {
     <section className="relative overflow-hidden text-surface-white min-h-[90vh] flex items-center pt-8 pb-20 lg:pt-0 lg:pb-32 bg-brand-slate">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.03] pointer-events-none"></div>
       
+      {/* Background Animation Blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            x: [0, 80, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -top-[10%] -left-[5%] w-[50%] h-[50%] rounded-full bg-brand-indigo/10 blur-[100px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -60, 0],
+            y: [0, 100, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] rounded-full bg-brand-amber/5 blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -80, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-[5%] left-[25%] w-[35%] h-[35%] rounded-full bg-brand-indigo/5 blur-[100px]"
+        />
+      </div>
+      
       <div className="container relative z-10 mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
           

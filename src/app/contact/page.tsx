@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
@@ -69,6 +70,27 @@ export default function ContactPage() {
                 </div>
               </div>
             ))}
+            <div className="pt-8 border-t border-surface-border">
+              <h3 className="text-sm font-bold text-sys-muted uppercase tracking-widest mb-4">Follow Us</h3>
+              <div className="flex gap-4">
+                {[
+                  { icon: Facebook, href: "https://www.facebook.com/saiteja.vidyanikethanhighschool?rdid=KtbvMYQDl6knJsir&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18XssUyKRZ%2F#", label: "Facebook", hoverClass: "hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2]" },
+                  { icon: Instagram, href: "https://www.instagram.com/vidyanikethan_official?igsh=MW91bHc5ZWQwNGdrMw%3D%3D", label: "Instagram", hoverClass: "hover:text-white hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:border-transparent" },
+                  { icon: Youtube, href: "https://youtube.com/@saitejasvidyanikethanhighs7510?si=jtsqVSd_C8I-34oA", label: "YouTube", hoverClass: "hover:text-white hover:bg-[#FF0000] hover:border-[#FF0000]" },
+                ].map((social, idx) => (
+                  <Link
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 flex items-center justify-center rounded-xl bg-surface-white border border-surface-border text-sys-muted hover:shadow-md transition-all group ${social.hoverClass}`}
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="bg-surface-white rounded-xl border border-surface-border shadow-md p-8 md:p-10">
