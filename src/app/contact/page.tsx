@@ -142,7 +142,7 @@ export default function ContactPage() {
       <section className="px-6 md:px-12 max-w-7xl mx-auto pb-12">
         <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-sm border border-surface-border">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.5492415797374!2d78.261234975167!3d17.52906378338198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbef23aeeceab9%3A0x63ce951dd9173030!2sJ.%20P.%20Colony%2C%20Patancheru%2C%20Hyderabad%2C%20Telangana%20502319!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3804.458229161097!2d78.266542!3d17.533356999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDMyJzAwLjEiTiA3OMKwMTUnNTkuNiJF!5e0!3m2!1sen!2sin!4v1775290353740!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
