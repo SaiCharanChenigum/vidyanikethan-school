@@ -13,7 +13,7 @@ import { SplitText } from "@/components/ui/SplitText";
 const formSchema = z.object({
   studentName: z.string().min(2, "Student name is required"),
   parentName: z.string().min(2, "Parent name is required"),
-  phone: z.string().min(10, "Valid phone number is required"),
+  phone: z.string().regex(/^[6-9][0-9]{9}$/, "Enter a valid 10-digit Indian mobile number (starting with 6/7/8/9)"),
   email: z.string().email("Invalid email").optional().or(z.literal("")),
   grade: z.string().min(1, "Please select a grade"),
   message: z.string().optional(),
@@ -35,16 +35,7 @@ export function Hero() {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Database submission failed");
-
-      if (process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID && process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID && process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
-        await emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-          { student_name: data.studentName, parent_name: data.parentName, phone: data.phone, email: data.email || "Not provided", grade: data.grade, message: data.message || "No message", to_email: "scvidyanikethan@gmail.com" },
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-        );
-      }
+      if (!res.ok) throw new Error("Submission failed");
 
       toast({ title: "Enquiry Submitted Successfully!", description: "We have received your details and will contact you soon." });
       reset();
@@ -182,7 +173,7 @@ export function Hero() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="phone" className="block text-xs uppercase tracking-widest font-bold text-surface-cloud/60 mb-2">Phone</label>
-                      <input {...register("phone")} className="block w-full rounded-md border border-white/10 bg-white/5 focus:bg-white/10 px-3 py-3 text-surface-white placeholder-white/30 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo transition-all font-medium text-sm" placeholder="Mobile number" />
+                      <input {...register("phone")} maxLength={10} inputMode="numeric" className="block w-full rounded-md border border-white/10 bg-white/5 focus:bg-white/10 px-3 py-3 text-surface-white placeholder-white/30 focus:outline-none focus:border-brand-indigo focus:ring-1 focus:ring-brand-indigo transition-all font-medium text-sm" placeholder="10-digit mobile number" onChange={(e) => { const digits = e.target.value.replace(/\D/g, '').slice(0, 10); e.target.value = digits; return register('phone').onChange(e); }} />
                       {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone.message}</p>}
                     </div>
                     

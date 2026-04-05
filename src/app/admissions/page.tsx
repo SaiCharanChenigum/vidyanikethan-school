@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { CheckCircle2 } from "lucide-react";
 
 const GRADES = ["Nursery", "LKG", "UKG", "Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI", "Class VII", "Class VIII", "Class IX", "Class X"];
@@ -19,6 +18,12 @@ export default function AdmissionsPage() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    if (e.target.name === "phone") {
+      // Only allow digits, max 10, starting with 6/7/8/9
+      const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+      setFormData((prev) => ({ ...prev, phone: digits }));
+      return;
+    }
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -26,14 +31,42 @@ export default function AdmissionsPage() {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMsg(null);
+
+    // Client-side phone validation
+    if (formData.phone.length < 10) {
+      setErrorMsg("Please enter a valid 10-digit phone number.");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!/^[6-9]/.test(formData.phone)) {
+      setErrorMsg("Phone number must start with 6, 7, 8, or 9.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const res = await fetch("/api/admissions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
-      if (!res.ok) throw new Error("Failed to submit");
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        // Show specific field errors if available
+        if (errData.errors && errData.errors.length > 0) {
+          const messages = errData.errors.map((e: { message: string }) => e.message).join(", ");
+          setErrorMsg(messages);
+        } else {
+          setErrorMsg(errData.message || "Failed to submit your enquiry. Please try again.");
+        }
+        return;
+      }
+
       try {
-        await emailjs.send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_id", process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_id",
-          { student_name: formData.studentName, parent_name: formData.parentName, phone: formData.phone, email: formData.email, grade: formData.grade, message: formData.message },
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key");
-      } catch (emailErr) { console.warn("EmailJS warning:", emailErr); }
+        await import("@emailjs/browser").then(({ default: emailjs }) =>
+          emailjs.send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_id", process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_id",
+            { student_name: formData.studentName, parent_name: formData.parentName, phone: formData.phone, email: formData.email, grade: formData.grade, message: formData.message },
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key")
+        );
+      } catch (emailErr) { console.warn("EmailJS:", emailErr); }
+
       setIsSuccess(true);
       setFormData({ studentName: "", parentName: "", phone: "", email: "", grade: "", message: "" });
       setTimeout(() => setIsSuccess(false), 5000);
@@ -101,7 +134,7 @@ export default function AdmissionsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Phone Number *</label>
-                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all" placeholder="Enter phone number" />
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} maxLength={10} inputMode="numeric" pattern="[6-9][0-9]{9}" className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary bg-surface-cloud/50 focus:bg-surface-white transition-all" placeholder="10-digit mobile number" />
               </div>
               <div>
                 <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Email (Optional)</label>

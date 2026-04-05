@@ -1,23 +1,40 @@
 "use client";
 
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, CheckCircle2, XCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [statusMsg, setStatusMsg] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [toast, setToast] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  const showToast = (type: "success" | "error", text: string) => {
+    setToast({ type, text });
+    setTimeout(() => setToast(null), 4000);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (e.target.name === "phone") {
+      const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+      setFormData((prev) => ({ ...prev, phone: digits }));
+      return;
+    }
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatusMsg(null);
+    setToast(null);
+
+    // Phone validation (optional field, but if entered must be valid)
+    if (formData.phone && !/^[6-9][0-9]{9}$/.test(formData.phone)) {
+      showToast("error", "Please enter a valid mobile number.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -25,24 +42,29 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
       if (!res.ok) throw new Error("Failed to save message");
-      try {
-        await emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_id",
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_id",
-          { from_name: formData.name, from_email: formData.email, phone: formData.phone, message: formData.message },
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key"
-        );
-      } catch (emailErr) { console.warn("EmailJS warning:", emailErr); }
-      setStatusMsg({ type: "success", text: "Successfully sent your message!" });
+      showToast("success", "Your message was sent successfully! We'll get back to you soon.");
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error: unknown) {
       console.error(error);
-      setStatusMsg({ type: "error", text: "Failed to send message. Please try again later." });
+      showToast("error", "Failed to send message. Please try again later.");
     } finally { setIsSubmitting(false); }
   };
 
   return (
     <main className="min-h-screen bg-surface-cloud pb-20">
+      {/* Toast Popup */}
+      {toast && (
+        <div className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl border text-sm font-semibold animate-fade-in transition-all ${toast.type === "success"
+            ? "bg-white border-green-200 text-green-800"
+            : "bg-white border-red-200 text-red-700"
+          }`}>
+          {toast.type === "success"
+            ? <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
+            : <XCircle className="h-5 w-5 text-red-500 shrink-0" />}
+          {toast.text}
+        </div>
+      )}
+
       <section className="bg-brand-slate py-24 px-6 md:px-12 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.03] pointer-events-none"></div>
         <div className="relative z-10 max-w-4xl mx-auto">
@@ -95,23 +117,17 @@ export default function ContactPage() {
 
           <div className="bg-surface-white rounded-xl border border-surface-border shadow-md p-8 md:p-10">
             <h2 className="text-2xl font-bold text-sys-primary mb-6">Send a Message</h2>
-            {statusMsg && (
-              <div className={`p-4 mb-6 rounded-md font-medium text-sm border ${statusMsg.type === "success" ? "bg-green-50 text-green-800 border-green-200" : "bg-red-50 text-red-800 border-red-200"}`}>
-                {statusMsg.text}
-              </div>
-            )}
             <form onSubmit={handleSubmit} className="space-y-5">
               {[
-                { label: "Name", name: "name", type: "text", placeholder: "Your full name" },
-                { label: "Email", name: "email", type: "email", placeholder: "Your email address" },
-                { label: "Phone", name: "phone", type: "tel", placeholder: "Your phone number" },
+                { label: "Name", name: "name", type: "text", placeholder: "Your full name", required: true },
+                { label: "Email", name: "email", type: "email", placeholder: "Your email address", required: true },
               ].map((field) => (
                 <div key={field.name}>
                   <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">{field.label}</label>
                   <input
                     type={field.type}
                     name={field.name}
-                    required={field.name !== "phone"}
+                    required={field.required}
                     value={formData[field.name as keyof typeof formData]}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary transition-all bg-surface-cloud/50 focus:bg-surface-white"
@@ -119,6 +135,19 @@ export default function ContactPage() {
                   />
                 </div>
               ))}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Phone (Optional)</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  maxLength={10}
+                  inputMode="numeric"
+                  className="w-full px-4 py-3 rounded-lg border border-surface-border focus:outline-none focus:ring-1 focus:ring-brand-indigo focus:border-brand-indigo text-sys-primary transition-all bg-surface-cloud/50 focus:bg-surface-white"
+                  placeholder="10-digit mobile number"
+                />
+              </div>
               <div>
                 <label className="block text-xs font-bold uppercase tracking-widest text-sys-muted mb-2">Message</label>
                 <textarea
@@ -142,7 +171,7 @@ export default function ContactPage() {
       <section className="px-6 md:px-12 max-w-7xl mx-auto pb-12">
         <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-sm border border-surface-border">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3804.458229161097!2d78.266542!3d17.533356999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDMyJzAwLjEiTiA3OMKwMTUnNTkuNiJF!5e0!3m2!1sen!2sin!4v1775290353740!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.4586760314583!2d78.26396837369313!3d17.533335698587205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf2eb10de2f23%3A0x5e2cd8e39f33e341!2sVidyaniketan%20High%20School!5e0!3m2!1sen!2sin!4v1775290990256!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}

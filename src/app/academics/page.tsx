@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Academics | Vidyanikethan High School",
@@ -7,10 +8,10 @@ export const metadata: Metadata = {
 
 export default function AcademicsPage() {
   const levels = [
-    { id: "01", title: "Pre-Primary", grades: "Nursery, LKG, UKG", desc: "A warm, stimulating environment focusing on foundational literacy, numeracy, and social skills through play-way methods." },
-    { id: "02", title: "Primary", grades: "Grade 1 to 5", desc: "Laying a strong academic base with an interactive CBSE curriculum that encourages curiosity and creative thinking." },
-    { id: "03", title: "Middle School", grades: "Grade 6 to 7", desc: "Transitioning to focused subject-based learning while emphasizing conceptual clarity and practical application." },
-    { id: "04", title: "Secondary", grades: "Grade 8 to 10", desc: "Rigorous preparation for board exams alongside competitive foundation courses, shaping analytical and critical thinking." },
+    { id: "01", title: "Pre-Primary", grades: "Nursery, LKG, UKG", image: "/images/academics/pre-primary.jpg", desc: "A warm, stimulating environment focusing on foundational literacy, numeracy, and social skills through play-way methods." },
+    { id: "02", title: "Primary", grades: "Grade 1 to 5", image: "/images/academics/primary.jpg", desc: "Laying a strong academic base with an interactive CBSE curriculum that encourages curiosity and creative thinking." },
+    { id: "03", title: "Middle School", grades: "Grade 6 to 7", image: "/images/academics/middle-school.jpg", desc: "Transitioning to focused subject-based learning while emphasizing conceptual clarity and practical application." },
+    { id: "04", title: "Secondary", grades: "Grade 8 to 10", image: "/images/academics/secondary.jpg", desc: "Rigorous preparation for board exams alongside competitive foundation courses, shaping analytical and critical thinking." },
   ];
 
   return (
@@ -41,8 +42,13 @@ export default function AcademicsPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto pb-24">
           {levels.map((level) => (
             <div key={level.id} className="bg-surface-white border border-surface-border rounded-xl flex flex-col shadow-sm group hover:-translate-y-1 hover:border-brand-indigo hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="aspect-[4/3] bg-surface-cloud border-b border-surface-border p-4 flex flex-col items-center justify-center relative overflow-hidden group-hover:bg-brand-indigo/5 transition-colors duration-500">
-                <span className="text-sys-muted text-xs font-bold tracking-widest uppercase z-10">Image Placeholder</span>
+              <div className="aspect-[4/3] bg-surface-cloud border-b border-surface-border relative overflow-hidden">
+                <Image
+                  src={level.image}
+                  alt={level.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="p-8 relative flex-1 flex flex-col">
                 <div className="text-2xl font-bold text-brand-indigo/30 mb-4 font-serif tracking-widest group-hover:text-brand-indigo/50 transition-colors">{level.id}.</div>
