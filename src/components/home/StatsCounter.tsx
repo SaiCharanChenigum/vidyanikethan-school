@@ -40,22 +40,22 @@ function Counter({ end, duration = 2000, suffix = "", text }: { end: number, dur
 export function StatsCounter() {
   const stats = [
     { end: 100, suffix: "%", text: "Results" },
-    { end: 49, suffix: "/49", text: "Students Passed" },
+    { end: 50, suffix: "/50", text: "Students Passed" },
     { end: 25, suffix: "+", text: "Expert Teachers" },
-    { end: 15, suffix: "+", text: "Years of Excellence" }
+    { end: 22, suffix: "+", text: "Years of Excellence" }
   ];
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden bg-brand-slate border-y border-white/5">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 sm:gap-y-0 relative items-center">
-          
+
           {stats.map((stat, i) => (
-             <div key={i} className={`relative h-full flex flex-col justify-center sm:py-8 lg:py-0 ${i % 2 === 1 ? 'sm:border-l sm:border-white/10 lg:border-none' : ''} ${i >= 2 ? 'sm:border-t sm:border-white/10 lg:border-t-0' : ''} ${i > 0 ? 'lg:border-l lg:border-white/10' : ''}`}>
+            <div key={i} className={`relative h-full flex flex-col justify-center sm:py-8 lg:py-0 ${i % 2 === 1 ? 'sm:border-l sm:border-white/10 lg:border-none' : ''} ${i >= 2 ? 'sm:border-t sm:border-white/10 lg:border-t-0' : ''} ${i > 0 ? 'lg:border-l lg:border-white/10' : ''}`}>
               <Counter {...stat} />
             </div>
           ))}
-          
+
         </div>
       </div>
     </section>
