@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
@@ -100,7 +101,24 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold tracking-widest uppercase mb-6 bg-brand-indigo/10 text-brand-indigo border border-brand-indigo/20 shadow-sm"
             >
-              Admissions Open for 2025-26
+              Admissions Open for 2026-27
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-8"
+            >
+              <div className="relative w-24 h-24 md:w-32 md:h-32 bg-white rounded-full shadow-2xl border-4 border-white/10 flex items-center justify-center overflow-hidden">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="Vidyanikethan Logo" 
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </motion.div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-7xl mb-6 leading-[1.1] font-bold tracking-tight text-surface-white uppercase">

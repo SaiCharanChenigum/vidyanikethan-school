@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, CheckCircle2, XCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 
 export default function ContactPage() {
@@ -99,6 +100,7 @@ export default function ContactPage() {
                   { icon: Facebook, href: "https://www.facebook.com/saiteja.vidyanikethanhighschool?rdid=KtbvMYQDl6knJsir&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18XssUyKRZ%2F#", label: "Facebook", hoverClass: "hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2]" },
                   { icon: Instagram, href: "https://www.instagram.com/vidyanikethan_official?igsh=MW91bHc5ZWQwNGdrMw%3D%3D", label: "Instagram", hoverClass: "hover:text-white hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:border-transparent" },
                   { icon: Youtube, href: "https://youtube.com/@saitejasvidyanikethanhighs7510?si=jtsqVSd_C8I-34oA", label: "YouTube", hoverClass: "hover:text-white hover:bg-[#FF0000] hover:border-[#FF0000]" },
+                  { icon: FaWhatsapp as any, href: "https://wa.me/919848591617", label: "WhatsApp", hoverClass: "hover:text-white hover:bg-[#25D366] hover:border-[#25D366]" },
                 ].map((social, idx) => (
                   <Link
                     key={idx}

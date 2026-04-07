@@ -1,4 +1,4 @@
-import { BookOpen, Atom, GraduationCap, MonitorPlay, Palette, ShieldCheck, Target, Eye } from "lucide-react";
+import { BookOpen, Atom, GraduationCap, MonitorPlay, Palette, ShieldCheck, Target, Eye, Quote } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -70,6 +70,24 @@ export default function AboutPage() {
                 To provide a dynamic and inclusive learning environment that blends the rigorous CBSE curriculum with modern teaching methodologies.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* School Motto */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 container mx-auto">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block text-[11px] font-bold tracking-widest text-brand-indigo uppercase mb-4">Our Guiding Principle</div>
+          <h2 className="text-3xl md:text-4xl font-bold text-sys-primary mb-5 tracking-tight uppercase">School Motto</h2>
+          <div className="h-[3px] w-12 bg-brand-indigo mx-auto rounded-full mb-10"></div>
+          
+          <div className="bg-surface-white border border-surface-border rounded-2xl p-8 md:p-14 shadow-sm relative">
+            <Quote className="absolute top-6 left-6 w-10 h-10 text-brand-indigo/10 rotate-180 hidden md:block" />
+            <Quote className="absolute bottom-6 right-6 w-10 h-10 text-brand-indigo/10 hidden md:block" />
+            
+            <p className="text-lg md:text-xl text-sys-primary font-medium leading-relaxed italic relative z-10 text-center">
+              &quot;The aim of the school is not only to impart instruction but also to develop the total personality of the child by training his/her intellectual, moral, emotional, physical and aesthetic faculties to make him fully human. The school therefore begins from the principle that education directs the growth of the whole person.&quot;
+            </p>
           </div>
         </div>
       </section>

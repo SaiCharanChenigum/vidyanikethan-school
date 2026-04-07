@@ -32,14 +32,14 @@ export function AboutSnippet() {
 
             {/* Floating badge */}
             <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", delay: 0.4 }}
-              className="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-8 bg-surface-white text-sys-primary p-5 md:p-8 shadow-xl rounded-xl text-center border border-surface-border w-[160px] md:w-[200px] z-20"
+              transition={{ delay: 0.4 }}
+              className="mt-6 mx-auto bg-surface-white text-sys-primary p-6 shadow-sm rounded-xl text-center border border-surface-border max-w-sm"
             >
-              <span className="block text-4xl md:text-6xl mb-1 font-bold tracking-tighter text-brand-indigo">22+</span>
-              <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold block text-sys-muted leading-relaxed mt-2">Years of Excellence</span>
+              <span className="block text-4xl md:text-5xl mb-1 font-bold tracking-tighter text-brand-indigo">22+</span>
+              <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold block text-sys-muted mt-2">Years of Excellence</span>
             </motion.div>
           </div>
 

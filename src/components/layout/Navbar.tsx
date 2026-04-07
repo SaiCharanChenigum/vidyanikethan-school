@@ -44,7 +44,7 @@ export function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold tracking-tight text-lg text-sys-primary leading-tight">
-                  Vidyanikethan
+                  Sai Teja&apos;s Vidyanikethan
                 </span>
                 <span className="text-[10px] font-bold tracking-widest text-brand-indigo uppercase leading-tight mt-0.5">
                   Nursery to Class X
