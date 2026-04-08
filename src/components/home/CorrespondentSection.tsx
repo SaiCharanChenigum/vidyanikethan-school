@@ -44,7 +44,7 @@ export function CorrespondentSection() {
             </div>
             <h3 className="text-xl font-bold text-sys-primary text-center uppercase">G. Sai Teja</h3>
             <p className="text-sm text-sys-muted font-bold tracking-wider mt-1 text-center">CORRESPONDENT</p>
-            <p className="text-xs text-brand-indigo font-bold tracking-widest mt-2 bg-brand-indigo/10 px-3 py-1 rounded-full text-center">MA, BL, PGDIRPM</p>
+            <p className="text-xs text-brand-indigo font-bold tracking-widest mt-2 bg-brand-indigo/10 px-3 py-1 rounded-full text-center">MA,BL,PGDIRPM</p>
           </motion.div>
 
           {/* Text Side */}
