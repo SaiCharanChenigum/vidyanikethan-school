@@ -41,7 +41,7 @@ export function StatsCounter() {
   const stats = [
     { end: 100, suffix: "%", text: "Results" },
     { end: 50, suffix: "/50", text: "Students Passed" },
-    { end: 25, suffix: "+", text: "Expert Teachers" },
+    { end: 45, suffix: "+", text: "Expert Teachers" },
     { end: 22, suffix: "+", text: "Years of Excellence" }
   ];
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Book, GraduationCap, Laptop, Palette, Trophy, Stethoscope, Video, Music, Atom, MonitorPlay } from "lucide-react";
+import { Book, GraduationCap, Laptop, Palette, Trophy, Stethoscope, Video, Music, Atom, MonitorPlay, Landmark, Library } from "lucide-react";
 import { FadeContent } from "@/components/ui/FadeContent";
 
 export function Features() {
@@ -16,6 +16,8 @@ export function Features() {
     { name: "Medical Care", icon: Stethoscope },
     { name: "CCTV Coverage", icon: Video },
     { name: "Extracurriculars", icon: Music },
+    { name: "Civil Foundation", icon: Landmark },
+    { name: "Library Access", icon: Library },
   ];
 
   const containerVariants = {
