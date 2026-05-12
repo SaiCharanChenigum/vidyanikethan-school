@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import { photos } from "./data";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function VideoCard({ url }: { url: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -101,27 +102,36 @@ export default function GalleryPage() {
 
         {/* Image & Video Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {currentPhotos.map((photo) => (
-            <div key={photo.id} className="bg-surface-white rounded-xl overflow-hidden shadow-sm border border-surface-border group relative">
-              <div className="aspect-[4/3] overflow-hidden bg-brand-slate/5">
-                {photo.type === "video" ? (
-                  <VideoCard url={photo.url} />
-                ) : (
-                  <img 
-                    src={photo.url} 
-                    alt={`Gallery Content ${photo.id}`} 
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                  />
-                )}
-              </div>
-              
-              {/* Overlay with Category Tag */}
-              <div className="absolute top-4 right-4 bg-brand-slate/80 backdrop-blur-sm text-surface-white text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                {photo.category}
-              </div>
-            </div>
-          ))}
+          <AnimatePresence mode="popLayout">
+            {currentPhotos.map((photo, index) => (
+              <motion.div 
+                key={photo.id}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: (index % 6) * 0.05 }}
+                className="bg-surface-white rounded-xl overflow-hidden shadow-sm border border-surface-border group relative"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-brand-slate/5">
+                  {photo.type === "video" ? (
+                    <VideoCard url={photo.url} />
+                  ) : (
+                    <img 
+                      src={photo.url} 
+                      alt={`Gallery Content ${photo.id}`} 
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
+                  )}
+                </div>
+                
+                {/* Overlay with Category Tag */}
+                <div className="absolute top-4 right-4 bg-brand-slate/80 backdrop-blur-sm text-surface-white text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  {photo.category}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* Pagination Controls */}
