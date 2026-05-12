@@ -8,6 +8,9 @@ function VideoCard({ url }: { url: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Generate a Cloudinary thumbnail URL by changing extension to .jpg
+  const posterUrl = url.replace(/\.[^/.]+$/, ".jpg");
+
   const togglePlay = () => {
     if (!videoRef.current) return;
     if (videoRef.current.paused) {
@@ -21,11 +24,13 @@ function VideoCard({ url }: { url: string }) {
 
   return (
     <div 
-      className="relative w-full h-full cursor-pointer group/video"
+      className="relative w-full h-full cursor-pointer group/video bg-brand-slate/10"
       onClick={togglePlay}
     >
       <video
         ref={videoRef}
+        poster={posterUrl}
+        preload="metadata"
         playsInline
         className="w-full h-full object-cover"
         onEnded={() => setIsPlaying(false)}
