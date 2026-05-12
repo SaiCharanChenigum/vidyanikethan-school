@@ -2,7 +2,8 @@ export const photos = [
   {
     "id": 1,
     "category": "Events",
-    "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.38.54 AM (1).jpeg"
+    "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.38.54 AM (1).jpeg",
+    "type": "image"
   },
   {
     "id": 2,
@@ -13,6 +14,12 @@ export const photos = [
     "id": 3,
     "category": "Events",
     "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.38.54 AM.jpeg"
+  },
+  {
+    "id": "v1",
+    "category": "Events",
+    "url": "https://res.cloudinary.com/dypgsgvbz/video/upload/q_auto/f_auto/v1778554411/Video_Clip_compressed_ymscd5.mp4",
+    "type": "video"
   },
   {
     "id": 4,
@@ -43,6 +50,12 @@ export const photos = [
     "id": 9,
     "category": "Events",
     "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.38.56 AM (3).jpeg"
+  },
+  {
+    "id": "v2",
+    "category": "Events",
+    "url": "https://res.cloudinary.com/dypgsgvbz/video/upload/q_auto/f_auto/v1778554799/Video_Clip_02_iyhhtx.mp4",
+    "type": "video"
   },
   {
     "id": 10,
@@ -98,6 +111,12 @@ export const photos = [
     "id": 20,
     "category": "Events",
     "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.38.59 AM.jpeg"
+  },
+  {
+    "id": "v3",
+    "category": "Events",
+    "url": "https://res.cloudinary.com/dypgsgvbz/video/upload/q_auto/f_auto/v1778554866/Video_Clip_03_compressed_lpenfc.mp4",
+    "type": "video"
   },
   {
     "id": 21,
@@ -185,6 +204,12 @@ export const photos = [
     "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.39.04 AM.jpeg"
   },
   {
+    "id": "v4",
+    "category": "Events",
+    "url": "https://res.cloudinary.com/dypgsgvbz/video/upload/q_auto/f_auto/v1778554919/Video_Clip_04_qqa0p2.mp4",
+    "type": "video"
+  },
+  {
     "id": 38,
     "category": "Events",
     "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.39.05 AM (1).jpeg"
@@ -253,6 +278,12 @@ export const photos = [
     "id": 51,
     "category": "Events",
     "url": "/images/gallery/WhatsApp Image 2026-03-31 at 12.39.08 AM.jpeg"
+  },
+  {
+    "id": "v5",
+    "category": "Events",
+    "url": "https://res.cloudinary.com/dypgsgvbz/video/upload/q_auto/f_auto/v1778554963/Video_Clip_05_dvsr0i.mp4",
+    "type": "video"
   },
   {
     "id": 52,

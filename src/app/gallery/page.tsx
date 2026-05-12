@@ -1,8 +1,47 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { photos } from "./data";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+
+function VideoCard({ url }: { url: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  return (
+    <div 
+      className="relative w-full h-full cursor-pointer group/video"
+      onClick={togglePlay}
+    >
+      <video
+        ref={videoRef}
+        playsInline
+        className="w-full h-full object-cover"
+        onEnded={() => setIsPlaying(false)}
+      >
+        <source src={url} type="video/mp4" />
+      </video>
+      
+      {/* Play/Pause Overlay */}
+      <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isPlaying ? "opacity-0 group-hover/video:opacity-100" : "opacity-100"}`}>
+        <div className="w-12 h-12 rounded-full bg-brand-indigo/80 backdrop-blur-sm flex items-center justify-center text-white shadow-xl transform transition-transform group-hover/video:scale-110">
+          {isPlaying ? <Pause className="w-6 h-6 fill-current" /> : <Play className="w-6 h-6 fill-current ml-1" />}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState("All");
@@ -55,21 +94,25 @@ export default function GalleryPage() {
           ))}
         </div>
 
-        {/* Image Grid */}
+        {/* Image & Video Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {currentPhotos.map((photo) => (
             <div key={photo.id} className="bg-surface-white rounded-xl overflow-hidden shadow-sm border border-surface-border group relative">
               <div className="aspect-[4/3] overflow-hidden bg-brand-slate/5">
-                <img 
-                  src={photo.url} 
-                  alt={`Gallery Image ${photo.id}`} 
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
+                {photo.type === "video" ? (
+                  <VideoCard url={photo.url} />
+                ) : (
+                  <img 
+                    src={photo.url} 
+                    alt={`Gallery Content ${photo.id}`} 
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                )}
               </div>
               
               {/* Overlay with Category Tag */}
-              <div className="absolute top-4 right-4 bg-brand-slate/80 backdrop-blur-sm text-surface-white text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-4 right-4 bg-brand-slate/80 backdrop-blur-sm text-surface-white text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 {photo.category}
               </div>
             </div>
